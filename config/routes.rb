@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     member do
       patch :toggle_sell
     end
-    collection do
+    member do
       get :reco
     end
   end

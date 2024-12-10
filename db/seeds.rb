@@ -12,6 +12,8 @@ Wishlist.destroy_all
 Collection.destroy_all
 Comment.destroy_all
 Disc.destroy_all
+
+Disc.create!(title: "Super reco", artist: "Lenny Kravitz", genre: "rock", suggested_price: 19.9, label: "Love and hate", release_date: "2023-10-15", cat_number: "VEL-1234")
 disc1 = Disc.create!(title: "Blue Electric Light", artist: "Lenny Kravitz", genre: "rock", suggested_price: 19.99, label: "Virgin Records", release_date: "2023-10-15", cat_number: "VEL-1234")
 disc2 = Disc.create!(title: "Echoes of the Soul", artist: "Norah Jones", genre: "jazz", suggested_price: 24.99, label: "Blue Note", release_date: "2020-04-23", cat_number: "BLU-5678")
 disc3 = Disc.create!(title: "Synth Horizons", artist: "Daft Punk", genre: "electronic", suggested_price: 29.99, label: "Columbia", release_date: "2013-07-12", cat_number: "CLB-9101")
