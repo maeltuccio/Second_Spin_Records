@@ -1,2 +1,52 @@
-<h1>Discs#new</h1>
-<p>Find me in app/views/discs/new.html.erb</p>
+<%= form_with model: @disc, local: true do |f| %>
+  <div>
+    <%= f.label :title, "Title" %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :artist, "Artist" %>
+    <%= f.text_field :artist %>
+  </div>
+
+  <div>
+    <%= f.label :genre, "Genre" %>
+    <%= f.text_field :genre %>
+  </div>
+
+  <div>
+    <%= f.label :suggested_price, "Suggested Price" %>
+    <%= f.number_field :suggested_price, step: 0.01 %>
+  </div>
+
+  <div>
+    <%= f.label :label, "Label" %>
+    <%= f.text_field :label %>
+  </div>
+
+  <div>
+    <%= f.label :release_date, "Release Date" %>
+    <%= f.date_field :release_date %>
+  </div>
+
+  <div>
+    <%= f.label :cat_number, "Catalog Number" %>
+    <%= f.text_field :cat_number %>
+  </div>
+
+  <div>
+    <%= f.label :photo, "Upload an Image" %>
+    <%= f.file_field :photo %>
+  </div>
+
+  <div>
+    <%= f.label :audio, "Upload an Audio File" %>
+    <%= f.file_field :audio %>
+  </div>
+
+  <div>
+    <%= f.submit "Create Disc" %>
+  </div>
+<% end %>
+
+<%= link_to "Back to all discs", discs_path %>
