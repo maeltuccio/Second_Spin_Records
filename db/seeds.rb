@@ -8,6 +8,9 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 Track.destroy_all
+Wishlist.destroy_all
+Collection.destroy_all
+Comment.destroy_all
 Disc.destroy_all
 disc1 = Disc.create!(title: "Blue Electric Light", artist: "Lenny Kravitz", genre: "rock", suggested_price: 19.99, label: "Virgin Records", release_date: "2023-10-15", cat_number: "VEL-1234")
 disc2 = Disc.create!(title: "Echoes of the Soul", artist: "Norah Jones", genre: "jazz", suggested_price: 24.99, label: "Blue Note", release_date: "2020-04-23", cat_number: "BLU-5678")
