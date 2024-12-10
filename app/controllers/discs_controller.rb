@@ -27,7 +27,7 @@ class DiscsController < ApplicationController
 
   def reco
     @disc = Disc.find(params[:id])
-    @recommended_discs = Disc.where(genre: @disc.genre).limit(5)
+    @recommended_discs = Disc.where(genre: @disc.genre)
   end
 
   private

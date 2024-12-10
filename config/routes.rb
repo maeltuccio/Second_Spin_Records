@@ -19,6 +19,6 @@ Rails.application.routes.draw do
       get :reco
     end
   end
-
+  get 'dashboard', to: 'dashboards#index'
   resources :wishlists, only: [:show]
 end
