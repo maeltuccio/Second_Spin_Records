@@ -1,8 +1,11 @@
 class DiscsController < ApplicationController
+
   def index
+    @discs = Disc.all
   end
 
   def show
+    @disc = Disc.find(params[:id])
   end
 
   def create
@@ -13,5 +16,4 @@ class DiscsController < ApplicationController
 
   def new
   end
-
 end

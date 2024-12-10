@@ -1,2 +1,13 @@
-<h1>Discs#show</h1>
-<p>Find me in app/views/discs/show.html.erb</p>
+<h1><%= @disc.title %></h1>
+<p><strong>Artist:</strong> <%= @disc.artist %></p>
+<p><strong>Genre:</strong> <%= @disc.genre %></p>
+<p><strong>Release Date:</strong> <%= @disc.release_date.strftime("%B %d, %Y") %></p>
+
+<h2>Tracks:</h2>
+<ul>
+  <% @disc.tracks.each do |track| %>
+    <li><%= track.name %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Back to all discs", discs_path %>

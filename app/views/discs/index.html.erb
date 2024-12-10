@@ -1,2 +1,12 @@
-<h1>Discs#index</h1>
-<p>Find me in app/views/discs/index.html.erb</p>
+<h1>Available Discs</h1>
+<ul>
+  <% @discs.each do |disc| %>
+    <li>
+      <p>----------------------------------------------</p>
+      <strong>Title:</strong> <%= disc.title %><br>
+      <strong>Artist:</strong> <%= disc.artist %><br>
+      <strong>Release Date:</strong> <%= disc.release_date.strftime("%B %Y") %><br>
+      <%= link_to "View Details", disc_path(disc) %>
+    </li>
+  <% end %>
+</ul>
