@@ -22,11 +22,11 @@ import { Discojs } from "discojs";
 
 // Connects to data-controller="disco"
 export default class extends Controller {
-  static targets = ["title", "artist", "releaseDate", "searchResults"];
+  static targets = ["title", "artist", "releaseDate", "searchResults", "searchInput"];
 
   connect() {
     const client = new Discojs({
-      userToken: "itwUipbnoZdBpubnjQEDcuCgSmRbzqbqXHdhxLjh",
+      userToken: "itwUipbnoZdBpubnjQEDcuCgSmRbzqbqXHdhxLjh",  // Ton token API Discojs
     });
 
     this.client = client;
@@ -35,50 +35,60 @@ export default class extends Controller {
   search(event) {
     event.preventDefault();
 
-    const query = event.target.value;  // Capture the query text (e.g., typed by user)
+    const query = this.searchInputTarget.value.trim();
 
-    if (query.length < 3) {  // Let's only trigger search for queries with more than 3 characters
-      this.searchResultsTarget.innerHTML = "";
-      return;
-    }
+    console.log(query);
+    // if (query.length < 1) {
+    //   alert("Veuillez entrer au moins un caractère.");
+    //   return;
+    // }
 
-    this.client.searchDatabase({ query })
+    this.client.searchRelease(query)
       .then((data) => {
+        console.log(data);
         this.displayResults(data);
+
       })
       .catch((error) => {
         console.error("Error during API call:", error);
+        if (error.response) {
+          console.log("API Error Response:", error.response.data); // Affiche la réponse détaillée de l'API
+        }
       });
   }
 
   displayResults(data) {
-    const results = data.result;
+    const results = data.results;
+    console.log(results);
 
     if (!results || results.length === 0) {
       this.searchResultsTarget.innerHTML = "No results found.";
       return;
     }
 
-    const html = results.map((disc) => {
-      return `
-        <div class="search-result" data-action="click->disco#fillForm" data-id="${disc.id}" data-title="${disc.title}" data-artist="${disc.artist.name}" data-release-date="${disc.year}">
-          <strong>${disc.title}</strong> by ${disc.artist.name} (${disc.year})
+    let html = '';
+    results.forEach((disc) => {
+      html += `
+        <div class="search-result" data-action="click->discojs#fillForm" data-id="${disc.id}" data-title="${disc.title}"  data-year="${disc.year}">
+          <strong>${disc.title}</strong> by  (${disc.year})
         </div>
       `;
-    }).join("");
+    });
 
+    console.log(html);
     this.searchResultsTarget.innerHTML = html;
   }
 
-  fillForm(event) {
-    const disc = event.target.dataset;
+    fillForm(event) {
+      const disc = event.currentTarget.dataset;
+      console.log(disc);
 
-    // Fill the form fields with the selected disc data
-    this.titleTarget.value = disc.title;
-    this.artistTarget.value = disc.artist;
-    this.releaseDateTarget.value = disc.releaseDate;
+      // Fill the form fields with the selected disc data
+      this.titleTarget.value = disc.title.split(" - ")[1];
+      this.artistTarget.value = disc.title.split(" - ")[0];
+      this.releaseDateTarget.value = disc.year;
 
-    // Optionally, hide search results after selection
-    this.searchResultsTarget.innerHTML = "";
-  }
+      // Optionally, hide search results after selection
+      this.searchResultsTarget.innerHTML = "";
+    }
 }
