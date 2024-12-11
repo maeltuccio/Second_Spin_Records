@@ -6,13 +6,13 @@ class DiscsController < ApplicationController
 
   def show
     @disc = Disc.find(params[:id])
-    @recommended_discs = Disc.where(genre: @disc.genre).limit(5)
+    @recommended_discs = Disc.where("genre ILIKE ?", @disc.genre).where.not(id: @disc.id).limit(5)
   end
 
   def create
     @disc = Disc.new(disc_params)
     if @disc.save
-      redirect_to @disc
+      redirect_to discs_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -28,7 +28,7 @@ class DiscsController < ApplicationController
 
   def reco
     @disc = Disc.find(params[:id])
-    @recommended_discs = Disc.where(genre: @disc.genre)
+    @recommended_discs = Disc.where("genre ILIKE ?", @disc.genre).where.not(id: @disc.id)
   end
 
   private

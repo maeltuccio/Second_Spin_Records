@@ -7,8 +7,9 @@
   <% @recommended_discs.each do |disc| %>
     <li>
       <strong><%= disc.title %></strong> - <%= disc.artist %> <br>
-      Genre: <%= disc.genre %> <br>
-      Date de sortie: <%= disc.release_date.strftime('%B %d, %Y') %> <br>
+      Genre: <%= disc.genre.presence || "Genre inconnu" %> <br>
+      Date de sortie:
+      <%= disc.release_date ? disc.release_date.strftime('%B %d, %Y') : "Date inconnue" %> <br>
       <%= link_to 'Voir cet album', disc_path(disc) %>
     </li>
   <% end %>

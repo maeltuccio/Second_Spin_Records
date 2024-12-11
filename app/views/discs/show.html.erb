@@ -1,24 +1,33 @@
 <h1><%= @disc.title %></h1>
 <p><strong>Artist:</strong> <%= @disc.artist %></p>
-<p><strong>Genre:</strong> <%= @disc.genre %></p>
-<p><strong>Release Date:</strong> <%= @disc.release_date.strftime("%B %d, %Y") %></p>
+<p><strong>Genre:</strong> <%= @disc.genre.presence || "Unknown" %></p>
+<p><strong>Release Date:</strong> <%= @disc.release_date ? @disc.release_date.strftime("%B %d, %Y") : "Unknown" %></p>
 
 <h2>Tracks:</h2>
-<ul>
-  <% @disc.tracks.each do |track| %>
-    <li><%= track.name %></li>
-  <% end %>
-</ul>
+<% if @disc.tracks.present? %>
+  <ul>
+    <% @disc.tracks.each do |track| %>
+      <li><%= track.name %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No tracks available.</p>
+<% end %>
 
 <h2>Recommendations:</h2>
-<ul>
-  <% @recommended_discs.each do |recommended_disc| %>
-    <li>
-      <%= link_to recommended_disc.title, disc_path(recommended_disc) %> - <%= recommended_disc.artist %>
-      <%= recommended_disc.genre %>
-    </li>
-  <% end %>
-</ul>
+<% if @recommended_discs.present? %>
+  <ul>
+    <% @recommended_discs.each do |recommended_disc| %>
+      <li>
+        <%= link_to recommended_disc.title, disc_path(recommended_disc) %> -
+        <%= recommended_disc.artist %>,
+        <%= recommended_disc.genre.presence || "Unknown genre" %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No recommendations available.</p>
+<% end %>
 
-<%= link_to "Back to all discs", discs_path %>
+<%= link_to "Back to all discs", discs_path %><br>
 <%= link_to "See more recommendations", reco_disc_path(@disc) %>
