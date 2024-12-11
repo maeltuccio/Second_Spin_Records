@@ -9,6 +9,18 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- formulaire de recherche -->
+      <div class="d-flex me-3">
+        <%= form_with url: discs_path, method: :get, local: true, class: "d-flex" do %>
+          <%= text_field_tag :query,
+                params[:query],
+                class: "form-control me-2",
+                placeholder: "Looking for a disc ?"
+            %>
+          <%= submit_tag "Search", name: "", class: "btn btn-outline-dark" %>
+        <% end %>
+      </div>
+
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
@@ -20,6 +32,7 @@
           <li class="nav-item">
             <%= link_to "Poster un disque", new_disc_path, class: "nav-link" %>
           </li>
+  
           <li class="nav-item dropdown">
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
