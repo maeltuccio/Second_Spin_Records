@@ -5,7 +5,8 @@
       <p>----------------------------------------------</p>
       <strong>Title:</strong> <%= disc.title %><br>
       <strong>Artist:</strong> <%= disc.artist %><br>
-      <strong>Release Date:</strong> <%= disc.release_date.strftime("%B %Y") %><br>
+      <strong>Release Date:</strong>
+      <%= disc.release_date ? disc.release_date.strftime("%B %Y") : "Unknown" %><br>
       <%= link_to "View Details", disc_path(disc) %>
     </li>
   <% end %>
