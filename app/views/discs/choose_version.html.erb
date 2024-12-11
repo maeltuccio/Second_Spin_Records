@@ -1,0 +1,21 @@
+<!-- app/views/discs/choose_version.html.erb -->
+<h1>Choisir une version de l'album</h1>
+
+<p>Plusieurs versions de cet album ont été trouvées. Veuillez choisir celle que vous souhaitez ajouter.</p>
+
+<%= form_with url: create_disc_path, method: :post do |form| %>
+  <%= hidden_field_tag :title, params[:title] %> <!-- Passe le titre de l'album -->
+
+  <% @search_results.each_with_index do |result, index| %>
+    <div>
+      <label>
+        <%= radio_button_tag :version, index %>
+        <%= result['title'] %> (par <%= result['artist'] %>) - <%= result['year'] %>
+      </label>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit 'Ajouter cette version' %>
+  </div>
+<% end %>
