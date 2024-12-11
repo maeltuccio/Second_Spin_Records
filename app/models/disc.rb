@@ -15,6 +15,7 @@ class Disc < ApplicationRecord
   validates :label, presence: true
   validates :release_date, presence: true
   validates :cat_number, presence: true, uniqueness: true
+  validates :cover_url, presence: true, allow_blank: true
 
   private
 
