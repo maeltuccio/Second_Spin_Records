@@ -1,0 +1,11 @@
+<h1>Votre collection</h1>
+
+ <ul>
+  <% if @collections.any? %>
+    <% @collections.each do |collection| %>
+      <li><%= collection.disc.title %> - <%= collection.disc.artist %></li>
+    <% end %>
+  <% else %>
+    <li>Aucune collection pour cet utilisateur.</li>
+  <% end %>
+</ul>

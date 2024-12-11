@@ -2,7 +2,7 @@
 <p><strong>Artist:</strong> <%= @disc.artist %></p>
 <p><strong>Genre:</strong> <%= @disc.genre.presence || "Unknown" %></p>
 <p><strong>Release Date:</strong> <%= @disc.release_date ? @disc.release_date.strftime("%B %d, %Y") : "Unknown" %></p>
-
+<%= link_to "Ajouter à ma wishlist", disc_wishlists_path(@disc), data: {turbo_method: :post}%>
 <h2>Tracks:</h2>
 <% if @disc.tracks.present? %>
   <ul>
