@@ -12,6 +12,16 @@ class CollectionsController < ApplicationController
     end
   end
 
+  def destroy
+    @collection = current_user.collection.find(params[:id])
+
+    if @collection.destroy
+      redirect_to collections_path, notice: 'Le disque a été retiré de votre collection.'
+    else
+      redirect_to collections_path, alert: 'Une erreur est survenue lors de la suppression.'
+    end
+  end
+
   def index
     @user = current_user
     @collections = @user.collection
