@@ -1,4 +1,35 @@
+<div>
+  <%= label_tag :search, "Search for a disc" %>
+  <%= text_field_tag :search, "", data: { action: "input->discojs#search" } %>
+</div>
+
+<%= form_with model: @disc, url: discs_path, method: :post, data: { controller: "discojs" } do |f| %>
+  <div>
+    <%= f.label :title, "Title" %>
+    <%= f.text_field :title, data: { discojs_target: "title" } %>
+  </div>
+
+  <div>
+    <%= f.label :artist, "Artist" %>
+    <%= f.text_field :artist, data: { discojs_target: "artist" } %>
+  </div>
+
+  <div>
+    <%= f.label :release_date, "Release Date" %>
+    <%= f.text_field :release_date, data: { discojs_target: "releaseDate" } %>
+  </div>
+
+  <div>
+    <%= f.submit "Create Disc" %>
+  </div>
+
+  <div id="search-results"></div>
+<% end %>
+
+
+
 <%= form_with model: @disc, local: true do |f| %>
+ <div data-controller="discojs" ></div>
   <div>
     <%= f.label :title, "Title" %>
     <%= f.text_field :title %>
