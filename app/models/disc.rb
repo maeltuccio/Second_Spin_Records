@@ -13,7 +13,6 @@ class Disc < ApplicationRecord
   validates :genre, presence: true
   validates :suggested_price, presence: true, numericality: { greater_than: 0 }
   validates :label, presence: true
-  validates :release_date, presence: true
   validates :cat_number, presence: true, uniqueness: true
 
   private
