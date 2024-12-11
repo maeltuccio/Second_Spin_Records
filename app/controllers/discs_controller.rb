@@ -6,6 +6,7 @@ class DiscsController < ApplicationController
 
   def show
     @disc = Disc.find(params[:id])
+    @recommended_discs = Disc.where(genre: @disc.genre).limit(5)
   end
 
   def create
@@ -23,6 +24,11 @@ class DiscsController < ApplicationController
 
   def new
     @disc = Disc.new
+  end
+
+  def reco
+    @disc = Disc.find(params[:id])
+    @recommended_discs = Disc.where(genre: @disc.genre)
   end
 
   private

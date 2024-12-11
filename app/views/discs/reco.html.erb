@@ -1,0 +1,15 @@
+<h1>Recommandations d'albums</h1>
+
+<p><strong>Album actuel:</strong> <%= @disc.title %> - <%= @disc.artist %></p>
+
+<h2>Albums similaires dans le même genre :</h2>
+<ul>
+  <% @recommended_discs.each do |disc| %>
+    <li>
+      <strong><%= disc.title %></strong> - <%= disc.artist %> <br>
+      Genre: <%= disc.genre %> <br>
+      Date de sortie: <%= disc.release_date.strftime('%B %d, %Y') %> <br>
+      <%= link_to 'Voir cet album', disc_path(disc) %>
+    </li>
+  <% end %>
+</ul>
