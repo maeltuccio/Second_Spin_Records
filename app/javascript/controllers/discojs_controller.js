@@ -38,10 +38,7 @@ export default class extends Controller {
     const query = this.searchInputTarget.value.trim();
 
     console.log(query);
-    // if (query.length < 1) {
-    //   alert("Veuillez entrer au moins un caractère.");
-    //   return;
-    // }
+
 
     this.client.searchRelease(query)
       .then((data) => {
@@ -86,7 +83,11 @@ export default class extends Controller {
       // Fill the form fields with the selected disc data
       this.titleTarget.value = disc.title.split(" - ")[1];
       this.artistTarget.value = disc.title.split(" - ")[0];
+      this.genreTarget.value = disc.genre;
+      this.labelTarget.value = disc.label;
       this.releaseDateTarget.value = disc.year;
+      this.catNumberTarget.value = disc.catno;
+      this.coverUrlTarget.value = disc.cover_url;
 
       // Optionally, hide search results after selection
       this.searchResultsTarget.innerHTML = "";
