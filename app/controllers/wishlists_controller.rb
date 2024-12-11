@@ -12,6 +12,16 @@ class WishlistsController < ApplicationController
     end
   end
 
+  def destroy
+    @wishlist = current_user.wishlists.find(params[:id])
+
+    if @wishlist.destroy
+      redirect_to wishlists_path, notice: 'Le disque a été retiré de votre wishlist.'
+    else
+      redirect_to wishlists_path, alert: 'Une erreur est survenue lors de la suppression.'
+    end
+  end
+
   def index
     @user = current_user
     @wishlists = @user.wishlists

@@ -1,11 +1,10 @@
 <h1>Votre Wishlist</h1>
 
  <ul>
-  <% if @wishlists.any? %> 
-    <% @wishlists.each do |wishlist| %>
-      <li><%= wishlist.disc.title %> - <%= wishlist.disc.artist %></li>
-    <% end %>
-  <% else %>
-    <li>Aucune wishlist pour cet utilisateur.</li>
+  <% @wishlists.each do |wishlist| %>
+    <li>
+      <%= wishlist.disc.title %> - <%= wishlist.disc.artist %>
+      <%= link_to 'delete', wishlist_path(wishlist), data: {turbo_method: :delete, data_confirm:'Êtes-vous sûr de vouloir supprimer cet élément de votre wishlist ?'} %>
+    </li>
   <% end %>
 </ul>

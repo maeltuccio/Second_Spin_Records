@@ -4,6 +4,8 @@
   <% if @collections.any? %>
     <% @collections.each do |collection| %>
       <li><%= collection.disc.title %> - <%= collection.disc.artist %></li>
+      <%= link_to 'delete', collection_path(collection), data: {turbo_method: :delete, data_confirm:'Êtes-vous sûr de vouloir supprimer cet élément de votre collection ?'} %>
+
     <% end %>
   <% else %>
     <li>Aucune collection pour cet utilisateur.</li>

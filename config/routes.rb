@@ -20,6 +20,6 @@ Rails.application.routes.draw do
     end
   end
   get 'dashboard', to: 'dashboards#index'
-  resources :wishlists, only: [:index]
-  resources :collections, only: [:index]
+  resources :wishlists, only: [:index, :destroy]
+  resources :collections, only: [:index, :destroy]
 end
