@@ -15,7 +15,15 @@ class Disc < ApplicationRecord
   validates :label, presence: true
   validates :cat_number, presence: true, uniqueness: true
   validates :cover_url, presence: true, allow_blank: true
+  # def audio_info
+  #   [
+  #     {
+  #       title: title,
+  #       audio_url: "https://res.cloudinary.com/dzzqyb9f3/image/upload/v1734011243/AudioPlayer/Audio/iuzhoytmqdvy3u9tj0p2.jpg",
+  #     }
+  #   ]
 
+  # end
   private
 
   def normalize_genre

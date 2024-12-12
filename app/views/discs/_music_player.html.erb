@@ -1,0 +1,29 @@
+<div class="music-content">
+<h1>Music Player</h1>
+
+    <div data-controller="music-controller" data-music-controller-audio-value="<%= @disc.audio_info.to_json %>" class="music-container" id="music-container">
+      <div class="music-info">
+        <h4 id="title"></h4>
+        <div class="progress-container" id="progress-container">
+          <div class="progress" id="progress"></div>
+        </div>
+      </div>
+
+      <audio data-action="timeupdate->music-player#updateProgress timeupdate->music-player#DurTime ended->music-player#nextSong" src="music/ukulele.mp3" id="audio"></audio>
+
+      <div class="img-container">
+        <img src="images/ukulele.jpg" alt="music-cover" id="cover" />
+      </div>
+      <div class="navigation">
+        <button id="prev" data-action="click->music-player#prevSong" class="action-btn">
+          <i class="fas fa-backward"></i>
+        </button>
+        <button id="play" data-action="click->music-player#handlePlay" class="action-btn action-btn-big">
+          <i class="fas fa-play"></i>
+        </button>
+        <button id="next" data-action="click->music-player#nextSong" class="action-btn">
+          <i class="fas fa-forward"></i>
+        </button>
+      </div>
+    </div>
+</div>

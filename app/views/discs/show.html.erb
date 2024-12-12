@@ -5,6 +5,7 @@
 <%= link_to "Ajouter à ma wishlist", disc_wishlists_path(@disc), data: {turbo_method: :post}%>
 <h2>Tracks:</h2>
 <% if @disc.tracks.present? %>
+<%= render "music_player", disc: @disc %>
   <ul>
     <% @disc.tracks.each do |track| %>
       <li><%= track.name %></li>
