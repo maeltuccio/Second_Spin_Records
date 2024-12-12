@@ -1,0 +1,29 @@
+<div class="music-content">
+<h1>Music Player</h1>
+
+    <div data-controller="music-player" data-music-player-audio-value="<%= @disc.audio_info.to_json %>" class="music-container" id="music-container" data-music-player-target="musicContainer">
+      <div class="music-info">
+        <h4 id="title" data-music-player-target="title"></h4>
+        <div class="progress-container" id="progress-container" data-music-player-target="progressContainer">
+          <div class="progress" id="progress" data-music-player-target="progress"></div>
+        </div>
+      </div>
+
+      <audio data-action="timeupdate->music-player#updateProgress timeupdate->music-player#DurTime ended->music-player#nextSong" id="audio" data-music-player-target="audio"></audio>
+
+      <div class="img-container">
+        <img src="<% @disc.cover_url %>" alt="music-cover" id="cover" data-music-player-target="cover" />
+      </div>
+      <div class="navigation">
+        <button id="prev" data-action="click->music-player#prevSong" class="action-btn" data-music-player-target="prevBtn">
+          <i class="fas fa-backward"></i>
+        </button>
+        <button id="play" data-action="click->music-player#handlePlay" class="action-btn action-btn-big" data-music-player-target="playBtn">
+          <i class="fas fa-play"></i>
+        </button>
+        <button id="next" data-action="click->music-player#nextSong" class="action-btn" data-music-player-target="nextBtn">
+          <i class="fas fa-forward"></i>
+        </button>
+      </div>
+    </div>
+</div>

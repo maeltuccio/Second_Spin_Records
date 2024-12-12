@@ -16,6 +16,7 @@ class DiscsController < ApplicationController
 
   def create
     @disc = Disc.new(disc_params)
+    
     if @disc.save
       # Ajouter le disque automatiquement à la collection de l'utilisateur
       @collection = Collection.new(user: current_user, disc: @disc)
@@ -45,6 +46,6 @@ class DiscsController < ApplicationController
   private
 
   def disc_params
-    params.require(:disc).permit(:title, :artist, :genre, :suggested_price, :label, :release_date, :cat_number, :cover_url)
+    params.require(:disc).permit(:title, :artist, :genre, :suggested_price, :label, :release_date, :cat_number, :cover_url, :audio)
   end
 end
