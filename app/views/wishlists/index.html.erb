@@ -1,11 +1,22 @@
 <turbo-frame id="dashboard_content">
   <h1>Votre Wishlist</h1>
-  <ul>
-    <% @wishlists.each do |wishlist| %>
-      <li>
-        <%= wishlist.disc.title %> - <%= wishlist.disc.artist %>
-        <%= link_to 'delete', wishlist_path(wishlist), data: { turbo_method: :delete, data_confirm:'Êtes-vous sûr de vouloir supprimer cet élément de votre wishlist ?' } %>
-      </li>
-    <% end %>
-  </ul>
+  <% if @wishlists.any? %>
+    <ul>
+      <% @wishlists.each do |wishlist| %>
+        <li>
+          <strong><%= wishlist.disc.title %></strong> - <%= wishlist.disc.artist %><br>
+          <% if wishlist.disc.cover_url.present? %>
+            <div>
+              <%= image_tag wishlist.disc.cover_url, alt: "Cover for #{wishlist.disc.title}", class: "img-thumbnail" %>
+            </div>
+          <% end %>
+          <%= link_to 'Supprimer', wishlist_path(wishlist),
+              data: { turbo_method: :delete, confirm: 'Êtes-vous sûr de vouloir supprimer cet élément de votre wishlist ?' },
+              class: 'btn btn-danger mt-2' %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>Votre wishlist est vide pour le moment.</p>
+  <% end %>
 </turbo-frame>
