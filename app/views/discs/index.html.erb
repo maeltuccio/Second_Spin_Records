@@ -14,7 +14,7 @@
         <% if disc.cover_url.present? %>
           <img src="<%= disc.cover_url %>" class="d-block w-100" alt="Cover of <%= disc.title %>">
         <% else %>
-          <img src="<%= asset_path('default-avatar.png') %>" class="d-block w-100" alt="Default cover">
+            <%= image_tag "secondspin.png", class:"d-block w-100", alt: "Default cover" %>
         <% end %>
         <div class="carousel-caption d-none d-md-block">
           <h5><%= disc.title %></h5>
