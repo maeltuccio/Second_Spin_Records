@@ -1,13 +1,15 @@
-<h1>Votre collection</h1>
-
- <ul>
-  <% if @collections.any? %>
-    <% @collections.each do |collection| %>
-      <li><%= collection.disc.title %> - <%= collection.disc.artist %></li>
-      <%= link_to 'delete', collection_path(collection), data: {turbo_method: :delete, data_confirm:'Êtes-vous sûr de vouloir supprimer cet élément de votre collection ?'} %>
-
+<turbo-frame id="dashboard_content">
+  <h1>Votre Collection</h1>
+  <ul>
+    <% if @collections.any? %>
+      <% @collections.each do |collection| %>
+        <li>
+          <%= collection.disc.title %> - <%= collection.disc.artist %>
+          <%= link_to 'delete', collection_path(collection), data: { turbo_method: :delete, data_confirm:'Êtes-vous sûr de vouloir supprimer cet élément de votre collection ?' } %>
+        </li>
+      <% end %>
+    <% else %>
+      <li>Aucune collection pour cet utilisateur.</li>
     <% end %>
-  <% else %>
-    <li>Aucune collection pour cet utilisateur.</li>
-  <% end %>
-</ul>
+  </ul>
+</turbo-frame>
