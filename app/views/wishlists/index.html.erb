@@ -1,10 +1,11 @@
-<h1>Votre Wishlist</h1>
-
- <ul>
-  <% @wishlists.each do |wishlist| %>
-    <li>
-      <%= wishlist.disc.title %> - <%= wishlist.disc.artist %>
-      <%= link_to 'delete', wishlist_path(wishlist), data: {turbo_method: :delete, data_confirm:'Êtes-vous sûr de vouloir supprimer cet élément de votre wishlist ?'} %>
-    </li>
-  <% end %>
-</ul>
+<turbo-frame id="dashboard_content">
+  <h1>Votre Wishlist</h1>
+  <ul>
+    <% @wishlists.each do |wishlist| %>
+      <li>
+        <%= wishlist.disc.title %> - <%= wishlist.disc.artist %>
+        <%= link_to 'delete', wishlist_path(wishlist), data: { turbo_method: :delete, data_confirm:'Êtes-vous sûr de vouloir supprimer cet élément de votre wishlist ?' } %>
+      </li>
+    <% end %>
+  </ul>
+</turbo-frame>
