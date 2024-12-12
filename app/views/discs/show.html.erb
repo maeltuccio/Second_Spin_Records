@@ -17,8 +17,9 @@
 <%= link_to "Ajouter à ma wishlist", disc_wishlists_path(@disc), data: { turbo_method: :post }, class: "btn btn-secondary mt-3" %>
 
 <h2 class="mt-5">Tracks:</h2>
-<% if @disc.tracks.present? %>
 <%= render "music_player", disc: @disc %>
+<% if @disc.tracks.present? %>
+
   <ul>
     <% @disc.tracks.each do |track| %>
       <li><%= track.name %></li>

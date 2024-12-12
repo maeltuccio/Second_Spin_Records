@@ -1,36 +1,40 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-static values = { audio: Array }
+  static targets = ["musicContainer", "playBtn", "prevBtn", "nextBtn", "audio", "progress", "cover", "title", "progressContainer"]
+  static values = { audio: Array }
 
   // Initially load song details into DOM
    connect() {
-    this.loadSong(songs[songIndex]);
+    console.log(this.musicContainerTarget)
+    this.loadSong(this.audioValue[0]);
+    this.currTime = document.querySelector("#currTime");
+    this.durTime = document.querySelector("#durTime");
    }
 
   // Update song details
   loadSong(song) {
-    title.innerText = song;
-    audio.src = `music/${song}.mp3`;
-    cover.src = `images/${song}.jpg`;
+    this.titleTarget.innerText = song["title"];
+    this.audioTarget.src = song["audio_url"]
+    this.coverTarget.src = song["cover_url"];
   }
 
   // Play song
   playSong() {
-    musicContainer.classList.add('play');
-    playBtn.querySelector('i.fas').classList.remove('fa-play');
-    playBtn.querySelector('i.fas').classList.add('fa-pause');
+    this.musicContainerTarget.classList.add('play');
+    this.playBtnTarget.querySelector('i.fas').classList.remove('fa-play');
+    this.playBtnTarget.querySelector('i.fas').classList.add('fa-pause');
 
-    audio.play();
+    this.audioTarget.play();
   }
 
   // Pause song
   pauseSong() {
-    musicContainer.classList.remove('play');
-    playBtn.querySelector('i.fas').classList.add('fa-play');
-    playBtn.querySelector('i.fas').classList.remove('fa-pause');
+    this.musicContainerTarget.classList.remove('play');
+    this.playBtnTarget.querySelector('i.fas').classList.add('fa-play');
+    this.playBtnTarget.querySelector('i.fas').classList.remove('fa-pause');
 
-    audio.pause();
+    this.audioTarget.pause();
   }
 
   // Previous song
@@ -41,9 +45,9 @@ static values = { audio: Array }
       songIndex = songs.length - 1;
     }
 
-    loadSong(songs[songIndex]);
+    this.loadSong(songs[songIndex]);
 
-    playSong();
+    this.playSong();
   }
 
   // Next song
@@ -54,34 +58,34 @@ static values = { audio: Array }
       songIndex = 0;
     }
 
-    loadSong(songs[songIndex]);
+    this.loadSong(songs[songIndex]);
 
-    playSong();
+    this.playSong();
   }
 
   // Update progress bar
   updateProgress(e) {
     const { duration, currentTime } = e.srcElement;
     const progressPercent = (currentTime / duration) * 100;
-    progress.style.width = `${progressPercent}%`;
+    this.progressTarget.style.width = `${progressPercent}%`;
   }
 
   // Set progress bar
   setProgress(e) {
     const width = this.clientWidth;
     const clickX = e.offsetX;
-    const duration = audio.duration;
+    const duration = this.audioTarget.duration;
 
-    audio.currentTime = (clickX / width) * duration;
+    this.audio.currentTime = (clickX / width) * duration;
   }
 
   handlePlay() {
-    const isPlaying = musicContainer.classList.contains('play');
+    const isPlaying = this.musicContainerTarget.classList.contains('play');
 
     if (isPlaying) {
-      pauseSong();
+      this.pauseSong();
     } else {
-      playSong();
+      this.playSong();
     }
   }
 
@@ -115,7 +119,7 @@ static values = { audio: Array }
 	get_sec (currentTime,sec);
 
 	// change currentTime DOM
-	currTime.innerHTML = min +':'+ sec;
+	this.currTime.innerHTML = min +':'+ sec;
 
 	// define minutes duration
 	let min_d = (isNaN(duration) === true)? '0':
@@ -144,7 +148,7 @@ static values = { audio: Array }
 	get_sec_d (duration);
 
 	// change duration DOM
-	durTime.innerHTML = min_d +':'+ sec_d;
+	this.durTime.innerHTML = min_d +':'+ sec_d;
 
 };
 }
