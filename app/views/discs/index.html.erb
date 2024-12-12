@@ -36,25 +36,28 @@
 <!-- Liste des disques -->
 <ul class="list-group">
   <% @discs.each do |disc| %>
-    <li class="list-group-item">
-      <div>
-        <strong>Title:</strong> <%= disc.title %><br>
-        <strong>Artist:</strong> <%= disc.artist %><br>
-        <strong>Genre:</strong> <%= disc.genre %><br>
-        <strong>Label:</strong> <%= disc.label %><br>
-        <strong>Release Date:</strong> <%= disc.release_date.present? ? disc.release_date : "Unknown" %><br>
-        <strong>Catalog Number:</strong> <%= disc.cat_number %><br>
-        <!-- Affichage de l'image si elle existe -->
-        <% if disc.cover_url.present? %>
-          <div>
-            <img src="<%= disc.cover_url %>" alt="Cover of <%= disc.title %>" class="img-fluid my-3" />
-          </div>
-        <% end %>
+
+  <a href="<%= disc_path(disc) %>" class="card-mini-link">
+    <div class="card-mini poppins-italic">
+      <div class="card-mini-content">
+        <h3 class="card-mini-title">Title: <%= disc.title %></h3>
+        <p><strong>Artist:</strong> <%= disc.artist %></p>
+        <p><strong>Genre:</strong> <%= disc.genre %></p>
+        <p><strong>Label:</strong> <%= disc.label %></p>
+        <p><strong>Release Date:</strong> <%= disc.release_date.present? ? disc.release_date : "Unknown" %></p>
+        <p><strong>Catalog Number:</strong> <%= disc.cat_number %></p>
         <!-- Lien vers la page des détails -->
-        <%= link_to "View Details", disc_path(disc), class: "btn btn-primary mt-3" %>
+        <%# <%= link_to "View Details", disc_path(disc), class: "btn btn-primary mt-3" %> %>
       </div>
-      <p class="text-muted my-2">----------------------------------------------</p>
-    </li>
+
+      <!-- Affichage de l'image de couverture si elle existe -->
+      <% if disc.cover_url.present? %>
+        <div class="card-mini-image" style="background-image: url('<%= disc.cover_url %>');"></div>
+      <% end %>
+    </div>
+  </a>
+
+
   <% end %>
 </ul>
 <!-- Footer -->

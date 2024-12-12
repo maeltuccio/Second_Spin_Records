@@ -1,49 +1,58 @@
-<h1><%= @disc.title %></h1>
-<p><strong>Artist:</strong> <%= @disc.artist %></p>
-<p><strong>Genre:</strong> <%= @disc.genre.presence || "Unknown" %></p>
-<p><strong>Release Date:</strong> <%= @disc.release_date.presence || "Unknown" %></p>
-<p><strong>Suggested Price:</strong> <%= number_to_currency(@disc.suggested_price) %></p>
-<p><strong>Label:</strong> <%= @disc.label.presence || "Unknown" %></p>
-<p><strong>Catalog Number:</strong> <%= @disc.cat_number.presence || "N/A" %></p>
+<div class="product-page">
+  <h1 class="poppins-semibold"><%= @disc.title %></h1>
+  <div class="product-card">
+<!-- Cover Image -->
+  <% if @disc.cover_url.present? %>
+    <div class="cover-image">
+      <img src="<%= @disc.cover_url %>" alt="Cover of <%= @disc.title %>" class="img-fluid"/>
+    </div>
+  <% end %>
+  <div class="product-meta ">
+    <p><strong>Artist:</strong> <%= @disc.artist %></p>
+    <p><strong>Genre:</strong> <%= @disc.genre.presence || "Unknown" %></p>
+    <p><strong>Release Date:</strong> <%= @disc.release_date.presence || "Unknown" %></p>
+    <p><strong>Suggested Price:</strong> <%= number_to_currency(@disc.suggested_price) %></p>
+    <p><strong>Label:</strong> <%= @disc.label.presence || "Unknown" %></p>
+    <p><strong>Catalog Number:</strong> <%= @disc.cat_number.presence || "N/A" %></p>
 
-<!-- Affichage de l'image de couverture -->
-<% if @disc.cover_url.present? %>
-  <div>
-    <img src="<%= @disc.cover_url %>" alt="Cover of <%= @disc.title %>" class="img-fluid my-3" />
+    <!-- Wishlist Button -->
+ <%= link_to disc_wishlists_path(@disc), data: { turbo_method: :post }, class: "btn btn-wishlist mt-3" do %>
+  <i class="fa-solid fa-heart"></i> Ajouter à la Wishlist
+<% end %>
   </div>
-<% end %>
+ </div>
 
-<!-- Bouton pour ajouter à la wishlist -->
-<%= link_to "Ajouter à ma wishlist", disc_wishlists_path(@disc), data: { turbo_method: :post }, class: "btn btn-secondary mt-3" %>
+  <h2 class="mt-5 poppins-semibold">Tracks:</h2>
+  <%= render "music_player", disc: @disc %>
 
-<h2 class="mt-5">Tracks:</h2>
-<%= render "music_player", disc: @disc %>
-<% if @disc.tracks.present? %>
+  <% if @disc.tracks.present? %>
+    <ul class="track-list">
+      <% @disc.tracks.each do |track| %>
+        <li><%= track.name %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No tracks available.</p>
+  <% end %>
 
-  <ul>
-    <% @disc.tracks.each do |track| %>
-      <li><%= track.name %></li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>No tracks available.</p>
-<% end %>
+  <h2 class="mt-5">Recommendations:</h2>
+  <% if @recommended_discs.present? %>
+    <ul class="recommended-list">
+      <% @recommended_discs.each do |recommended_disc| %>
+        <li>
+          <%= link_to recommended_disc.title, disc_path(recommended_disc) %> -
+          <%= recommended_disc.artist %>,
+          <%= recommended_disc.genre.presence || "Unknown genre" %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No recommendations available.</p>
+  <% end %>
 
-<h2 class="mt-5">Recommendations:</h2>
-<% if @recommended_discs.present? %>
-  <ul>
-    <% @recommended_discs.each do |recommended_disc| %>
-      <li>
-        <%= link_to recommended_disc.title, disc_path(recommended_disc) %> -
-        <%= recommended_disc.artist %>,
-        <%= recommended_disc.genre.presence || "Unknown genre" %>
-      </li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>No recommendations available.</p>
-<% end %>
-
-<!-- Liens de navigation -->
-<%= link_to "Back to all discs", discs_path, class: "btn btn-primary mt-3" %><br>
-<%= link_to "See more recommendations", reco_disc_path(@disc), class: "btn btn-info mt-3" %>
+  <!-- Navigation Links -->
+  <div class="product-nav">
+    <%= link_to "Back to all discs", discs_path, class: "btn btn-primary" %><br>
+    <%= link_to "See more recommendations", reco_disc_path(@disc), class: "btn btn-info" %>
+  </div>
+</div>
