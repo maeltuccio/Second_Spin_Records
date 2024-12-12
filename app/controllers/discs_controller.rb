@@ -20,7 +20,7 @@ class DiscsController < ApplicationController
       # Ajouter le disque automatiquement à la collection de l'utilisateur
       @collection = Collection.new(user: current_user, disc: @disc)
       if @collection.save
-        redirect_to  collections_path, notice: 'Le disque a été créé et ajouté à votre collection.'
+        redirect_to collections_path, notice: 'Le disque a été créé et ajouté à votre collection.'
       else
         redirect_to discs_path, alert: 'Le disque a été créé, mais une erreur est survenue lors de l\'ajout à votre collection.'
       end
@@ -45,6 +45,6 @@ class DiscsController < ApplicationController
   private
 
   def disc_params
-    params.require(:disc).permit(:title, :artist, :genre, :suggested_price, :label, :release_date, :cat_number, :photo)
+    params.require(:disc).permit(:title, :artist, :genre, :suggested_price, :label, :release_date, :cat_number, :cover_url)
   end
 end
