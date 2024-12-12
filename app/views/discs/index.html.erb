@@ -1,13 +1,26 @@
-<h1>Available Discs</h1>
-<ul>
+<h1 class="text-center my-4">Available Discs</h1>
+<ul class="list-group">
   <% @discs.each do |disc| %>
-    <li>
-      <p>----------------------------------------------</p>
-      <strong>Title:</strong> <%= disc.title %><br>
-      <strong>Artist:</strong> <%= disc.artist %><br>
-      <strong>Release Date:</strong>
-      <%= disc.release_date ? disc.release_date : "Unknown" %><br>
-      <%= link_to "View Details", disc_path(disc) %>
+    <li class="list-group-item">
+      <div>
+        <strong>Title:</strong> <%= disc.title %><br>
+        <strong>Artist:</strong> <%= disc.artist %><br>
+        <strong>Genre:</strong> <%= disc.genre %><br>
+        <strong>Label:</strong> <%= disc.label %><br>
+        <strong>Release Date:</strong> <%= disc.release_date.present? ? disc.release_date : "Unknown" %><br>
+        <strong>Catalog Number:</strong> <%= disc.cat_number %><br>
+
+        <!-- Affichage de l'image si elle existe -->
+        <% if disc.cover_url.present? %>
+          <div>
+            <img src="<%= disc.cover_url %>" alt="Cover of <%= disc.title %>" class="img-fluid my-3" />
+          </div>
+        <% end %>
+
+        <!-- Lien vers la page des détails -->
+        <%= link_to "View Details", disc_path(disc), class: "btn btn-primary mt-3" %>
+      </div>
+      <p class="text-muted my-2">----------------------------------------------</p>
     </li>
   <% end %>
 </ul>
