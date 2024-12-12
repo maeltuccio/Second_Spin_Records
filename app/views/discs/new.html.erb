@@ -11,6 +11,7 @@
 
 
 
+
   <!-- Formulaire -->
 
 
@@ -30,10 +31,7 @@
     <%= f.text_field :genre, class: "form-control", data: { discojs_target: "genre" }  %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :suggested_price, "Suggested Price", class: "form-label" %>
-    <%= f.number_field :suggested_price, step: 0.01, class: "form-control" %>
-  </div>
+
 
   <div class="form-group">
     <%= f.label :label, "Label", class: "form-label" %>
@@ -50,6 +48,17 @@
     <%= f.text_field :cat_number, class: "form-control", data: { discojs_target: "catNumber" }  %>
   </div>
 
+    <!-- Ajout d'un champ pour coverUrl -->
+  <div class="form-group">
+    <%= f.label :cover_url, "Cover URL", class: "form-label" %>
+    <%= f.text_field :cover_url, class: "form-control", data: { discojs_target: "coverUrl" } %>
+  </div>
+
+    <!-- Aperçu de l'image de couverture -->
+  <div class="form-group mt-3">
+    <%= label_tag :cover_url, "Cover Image", class: "form-label" %>
+    <img data-discojs-target="coverImage" src="" alt="Cover Image" class="img-fluid" style="max-width: 200px;"/>
+  </div>
 
   <div class="form-group">
     <%= f.label :photo, "Upload an Image", class: "form-label" %>
