@@ -11,7 +11,7 @@ class Disc < ApplicationRecord
   validates :title, presence: true
   validates :artist, presence: true
   validates :genre, presence: true
-  validates :suggested_price, presence: true, numericality: { greater_than: 0 }
+  #validates :suggested_price, presence: true, numericality: { greater_than: 0 }
   validates :label, presence: true
   validates :cat_number, presence: true, uniqueness: true
   validates :cover_url, presence: true, allow_blank: true

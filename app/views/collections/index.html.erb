@@ -5,6 +5,9 @@
       <% @collections.each do |collection| %>
         <li>
           <%= collection.disc.title %> - <%= collection.disc.artist %>
+          <% if collection.disc.cover_url %>
+            <%= image_tag collection.disc.cover_url %>
+            <% end %>
           <%= link_to 'delete', collection_path(collection), data: { turbo_method: :delete, data_confirm:'Êtes-vous sûr de vouloir supprimer cet élément de votre collection ?' } %>
         </li>
       <% end %>
