@@ -21,7 +21,7 @@ class Disc < ApplicationRecord
     [
       {
         title: title,
-        audio_url: cl_path(audio.key, resource_type: :video),
+        audio_url: self.audio.attached? ? cl_path(audio.key, resource_type: :video) : "",
         cover_url: cover_url
       }
     ]
