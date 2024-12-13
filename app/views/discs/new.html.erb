@@ -2,7 +2,7 @@
 <div class="form-group" data-controller="discojs">
   <%= label_tag :search, "Search for a disc", class: "form-label" %>
 
-  <%= text_field_tag :search, "", class: "form-control", data: { target: "discojs.searchInput" } %>
+  <%= text_field_tag :search, "", class: "form-control", data: { discojs_target: "searchInput" } %>
 
   <%= button_tag "Search", type: "button", class: "btn btn-primary", data: { action: "click->discojs#search" } %>
 

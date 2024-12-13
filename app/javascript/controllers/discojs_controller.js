@@ -7,6 +7,7 @@ export default class extends Controller {
   static targets = ["title", "artist", "genre", "label", "catNumber", "coverUrl", "coverImage", "releaseDate", "searchResults", "searchInput"];
 
   connect() {
+    console.log("connect disco JS")
     const client = new Discojs({
       userToken: "itwUipbnoZdBpubnjQEDcuCgSmRbzqbqXHdhxLjh",  // Ton token API Discojs
     });
@@ -15,6 +16,7 @@ export default class extends Controller {
   }
 
   search(event) {
+    console.log("search")
     event.preventDefault();
 
     const query = this.searchInputTarget.value.trim();
