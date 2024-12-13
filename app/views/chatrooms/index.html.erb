@@ -1,0 +1,16 @@
+<h1>My Chatrooms</h1>
+
+<% @chatrooms.each do |chatroom| %>
+  <div class="chatroom">
+    <p>Chatroom with:
+      <% if current_user.id == chatroom.user1_id %>
+        <%= chatroom.user2.email %>
+      <% else %>
+        <%= chatroom.user1.email %>
+      <% end %>
+    </p>
+    <%= link_to "View Chat", chatroom_path(chatroom) %>
+  </div>
+<% end %>
+
+

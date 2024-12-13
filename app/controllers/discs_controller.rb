@@ -43,6 +43,10 @@ class DiscsController < ApplicationController
     @recommended_discs = Disc.where("genre ILIKE ?", @disc.genre).where.not(id: @disc.id)
   end
 
+
+def find_with_user
+end
+
   private
 
   def disc_params

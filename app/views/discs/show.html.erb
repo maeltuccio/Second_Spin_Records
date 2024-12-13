@@ -1,3 +1,4 @@
+
 <div class="product-page">
   <h1 class="poppins-semibold"><%= @disc.title %></h1>
   <div class="product-card">
@@ -20,6 +21,9 @@
   <i class="fa-solid fa-heart"></i> Ajouter à la Wishlist
 <% end %>
   </div>
+    <% @disc.collections.each do |collection|%>
+<%= link_to "discuter avec l'owner", chat_with_owner_path(collection.user) unless collection.user == current_user %>
+<% end %>
  </div>
 
   <h2 class="mt-5 poppins-semibold">Tracks:</h2>
