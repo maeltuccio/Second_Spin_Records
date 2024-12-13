@@ -34,20 +34,29 @@
 
   }
 }
-
 .product-card {
+  position: relative; /* Nécessaire pour positionner le pseudo-élément par rapport à ce conteneur */
   display: flex;
   height: fit-content;
   flex-wrap: wrap;
   gap: 20px;
-  opacity: 0.9;
-  background: linear-gradient(270deg, black, transparent); /* Dégradé noir transparent */
-  // background: repeating-radial-gradient(black, transparent 100px); /* Crée un motif de cercles noirs funky mode */
   border-radius: 10px;
   overflow: hidden; /* Cache les parties de l'image qui dépassent */
-
   box-shadow: 0 20px 20px 0 rgba(21, 9, 9, 0.6);
+}
 
+.product-card::before {
+  content: ""; /* Nécessaire pour créer un pseudo-élément */
+  position: absolute; /* Positionner en arrière-plan */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  // background: linear-gradient(270deg, black, transparent); /* Dégradé noir transparent */
+  background: repeating-radial-gradient(black, transparent 100px); /* Crée un motif de cercles noirs funky mode */
+
+  opacity: 0.7; /* Applique la transparence uniquement sur le fond */
+  z-index: -1; /* Assure que le fond est derrière le contenu */
 }
 
 .cover-image {
@@ -56,6 +65,10 @@
   max-width: 50%; /* Limite la taille de l'image à la moitié du conteneur */
   padding-right: 15px;
   border-radius: 10px;
+  opacity: 1;  /* L'image reste pleinement opaque */
+  transition: opacity 0.3s ease;  /* Transition pour l'effet d'assombrissement */
+
+
 
   img {
     height: auto;
