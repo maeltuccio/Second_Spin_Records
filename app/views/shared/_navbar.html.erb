@@ -1,23 +1,27 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+<div class="navbar navbar-expand-lg navbar-light navbar-lewagon">
+  <div class="container-fluid d-flex align-items-center justify-content-between">
+    <!-- Logo -->
+    <%= link_to root_path, class: "navbar-brand d-flex align-items-center" do %>
+      <%= image_tag "secondspin.png", alt: "Second Spin Records", class: "navbar-logo" %>
     <% end %>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <!-- formulaire de recherche -->
-      <div class="d-flex me-3">
-        <%= form_with url: discs_path, method: :get, local: true, class: "d-flex" do %>
-          <%= text_field_tag :query,
-                params[:query],
-                class: "form-control me-2",
-                placeholder: "Looking for a disc ?"
-            %>
-          <%= submit_tag "Search", name: "", class: "btn btn-outline-dark" %>
+    <!-- Formulaire de recherche -->
+    <div class="search-bar mx-auto">
+      <%= form_with url: discs_path, method: :get, local: true, class: "d-flex align-items-center" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control search-input",
+              placeholder: "Looking for a disc ?" %>
+        <button type="submit" class="btn btn-search">
+          <i class="bi bi-search"></i>
+        </button>
+      <% end %>
+    </div>
+    <!-- Boutons et liens -->
+    <ul class="navbar-nav d-flex align-items-center">
+      <li class="nav-item">
+        <%= link_to dashboard_path, class: "nav-link d-flex align-items-center" do %>
+          <i class="bi bi-house"></i>
+          <span class="ms-2">Dashboards</span>
         <% end %>
       </div>
 
@@ -47,8 +51,20 @@
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </li>
+
         <% end %>
-      </ul>
-    </div>
+      </li>
+      <li class="nav-item">
+        <%= link_to new_disc_path, class: "nav-link d-flex align-items-center" do %>
+          <i class="bi bi-plus-circle"></i>
+          <span class="ms-2">Poster un disque</span>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link d-flex align-items-center">
+          <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="Me" class="avatar">
+        </a>
+      </li>
+    </ul>
   </div>
 </div>

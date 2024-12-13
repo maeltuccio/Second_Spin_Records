@@ -1,0 +1,78 @@
+/* Global Styles */
+.product-page {
+  max-width: 80%;
+  max-height: 50%;
+  margin: 0 auto;
+  padding: 30px;
+  font-family: Arial, sans-serif;
+
+}
+
+
+.product-meta {
+  padding-top: 30px;
+  padding-inline: 56px;
+  font-size: 1.2rem;
+  color: #f7f7f7;
+  text-align: justify; /* Justifie le texte pour un meilleur rendu */
+  justify-content: space-between;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Ombre du texte pour plus de lisibilité */
+
+
+
+
+
+
+  strong {
+    font-weight: bold;
+    padding-right: 1.1rem;
+  }
+
+  p {
+    margin: 2rem 0;
+    font-size: 1.1rem; /* Augmente légèrement la taille des paragraphes */
+
+  }
+}
+.product-card {
+  position: relative; /* Nécessaire pour positionner le pseudo-élément par rapport à ce conteneur */
+  display: flex;
+  height: fit-content;
+  flex-wrap: wrap;
+  gap: 20px;
+  border-radius: 10px;
+  overflow: hidden; /* Cache les parties de l'image qui dépassent */
+  box-shadow: 0 20px 20px 0 rgba(21, 9, 9, 0.6);
+}
+
+.product-card::before {
+  content: ""; /* Nécessaire pour créer un pseudo-élément */
+  position: absolute; /* Positionner en arrière-plan */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  // background: linear-gradient(270deg, black, transparent); /* Dégradé noir transparent */
+  background: repeating-radial-gradient(black, transparent 100px); /* Crée un motif de cercles noirs funky mode */
+
+  opacity: 0.7; /* Applique la transparence uniquement sur le fond */
+  z-index: -1; /* Assure que le fond est derrière le contenu */
+}
+
+.cover-image {
+  text-align: center;
+  flex: 1;
+  max-width: 50%; /* Limite la taille de l'image à la moitié du conteneur */
+  padding-right: 15px;
+  border-radius: 10px;
+  opacity: 1;  /* L'image reste pleinement opaque */
+  transition: opacity 0.3s ease;  /* Transition pour l'effet d'assombrissement */
+
+
+
+  img {
+    height: auto;
+    object-fit: cover; /* Garantit que l'image couvre bien l'espace sans déformation */
+
+  }
+}

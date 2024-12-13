@@ -1,0 +1,148 @@
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$background-color: #f4f4f4;
+$text-color: #333;
+$border-color: #ddd;
+$card-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+body {
+  font-family: Arial, sans-serif;
+  background-color: $background-color;
+  color: $text-color;
+}
+h1.text-center {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: $primary-color;
+}
+// Liste principale
+ul.list-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 2rem;
+  list-style: none;
+}
+// Élément de la liste (carte disque)
+.list-group-item {
+  background-color: #fff;
+  border: 1px solid $border-color;
+  border-radius: 15px; // Coins plus arrondis
+  padding: 20px;
+  box-shadow: $card-shadow;
+  text-align: center; // Centrage global
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  // Section visuelle avec des barres verticales
+  .disc-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px; // Espacement entre les barres
+    div {
+      width: 50px;
+      height: 100px;
+      background-color: $text-color; // Barres noires
+      border-radius: 5px; // Coins légèrement arrondis
+    }
+  }
+  // Texte et informations
+  h3 {
+    font-size: 1.2rem;
+    margin: 15px 0 5px 0;
+    color: $text-color;
+  }
+  p {
+    font-size: 0.9rem;
+    color: $secondary-color;
+    margin: 5px 0 15px 0;
+    line-height: 1.5;
+  }
+  // Header avec image et texte
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%; // Avatar circulaire
+      object-fit: cover;
+    }
+    .text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      .name {
+        font-weight: bold;
+        font-size: 1rem;
+        color: $text-color;
+      }
+      .subhead {
+        font-size: 0.8rem;
+        color: $secondary-color;
+      }
+    }
+  }
+  // Image de couverture
+  img.img-fluid {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 15px;
+    box-shadow: $card-shadow;
+  }
+  // Lien vers les détails
+  .btn-primary {
+    background-color: $primary-color;
+    border: none;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+  // Ligne de séparation (si nécessaire)
+  .text-muted {
+    color: $secondary-color;
+    font-size: 0.8rem;
+    margin: 10px 0;
+    text-align: center;
+  }
+}
+// Responsive Design
+@media (max-width: 768px) {
+  h1.text-center {
+    font-size: 2rem;
+  }
+  .list-group-item {
+    padding: 15px;
+  }
+  .btn-primary {
+    font-size: 0.8rem;
+  }
+  .disc-visual div {
+    width: 40px;
+    height: 80px; // Barres plus petites pour les petits écrans
+  }
+}
+#discCarousel {
+  margin: 0 auto;
+  max-width: 800px; // Limitez la largeur du carrousel
+  .carousel-inner img {
+    border-radius: 10px; // Coins arrondis
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Effet d'ombre sur les images
+  }
+  .carousel-caption {
+    background: rgba(0, 0, 0, 0.5); // Fond semi-transparent pour le texte
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+  }
+}
