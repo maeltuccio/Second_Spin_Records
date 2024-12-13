@@ -39,6 +39,14 @@
     <p>No tracks available.</p>
   <% end %>
 
+<%= render "comments/form" %>
+
+
+  <!-- Liste des commentaires -->
+  <div id="comments_list">
+    <%= render partial: "comments/comment", collection: @disc.comments, as: :comment %>
+  </div>
+
   <h2 class="mt-5">Recommendations:</h2>
   <% if @recommended_discs.present? %>
     <ul class="recommended-list">

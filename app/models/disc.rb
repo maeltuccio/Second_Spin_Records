@@ -1,10 +1,12 @@
 class Disc < ApplicationRecord
+  include CloudinaryHelper
+
   before_save :normalize_genre
 
   has_one_attached :photo
   has_one_attached :audio
   has_many :tracks
-  has_many :comments
+  has_many :comments, dependent: :destroy  # Un disque peut avoir plusieurs commentaires
   has_many :wishlists
   has_many :collections
 
@@ -19,7 +21,7 @@ class Disc < ApplicationRecord
     [
       {
         title: title,
-        audio_url: "https://res.cloudinary.com/dzzqyb9f3/video/upload/v1734015665/development/#{audio.key}.mp3",
+        audio_url: cl_path(audio.key, resource_type: :video),
         cover_url: cover_url
       }
     ]
