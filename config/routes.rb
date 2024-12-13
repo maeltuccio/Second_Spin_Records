@@ -20,6 +20,12 @@ Rails.application.routes.draw do
     end
   end
   get 'dashboard', to: 'dashboards#index'
+  get "users/:id/get_chat_with_owner", to: "chatrooms#chat_with_owner", as: :chat_with_owner
+
   resources :wishlists, only: [:index, :destroy]
   resources :collections, only: [:index, :destroy]
+
+  resources :chatrooms, only: [:index, :show, :create,:destroy] do
+    resources :messages, only: [:create]
+  end
 end

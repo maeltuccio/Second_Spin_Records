@@ -5,6 +5,9 @@
 <p><strong>Suggested Price:</strong> <%= number_to_currency(@disc.suggested_price) %></p>
 <p><strong>Label:</strong> <%= @disc.label.presence || "Unknown" %></p>
 <p><strong>Catalog Number:</strong> <%= @disc.cat_number.presence || "N/A" %></p>
+<% @disc.collections.each do |collection|%>
+<%= link_to "discuter avec l'owner", chat_with_owner_path(collection.user) unless collection.user == current_user %>
+<% end %>
 
 <!-- Affichage de l'image de couverture -->
 <% if @disc.cover_url.present? %>

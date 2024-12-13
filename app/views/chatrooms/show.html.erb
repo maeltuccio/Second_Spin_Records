@@ -1,0 +1,21 @@
+<h1>Chatroom avec <%= @chatroom.user1.email %> et <%= @chatroom.user2.email %></h1>
+
+<div id="messages">
+  <% @chatroom.messages.each do |message| %>
+    <p>
+      <strong><%= message.user.email %>:</strong> <%= message.content %>
+    </p>
+  <% end %>
+</div>
+
+<%= simple_form_for [@chatroom, Message.new],
+  html: {class: "d-flex mt-3"} do |f|
+%>
+  <% other_user = current_user == @chatroom.user1 ? @chatroom.user2 : @chatroom.user1 %>
+  <%= f.input :content,
+    label: false,
+    placeholder: "Message à #{other_user.email}",
+    wrapper_html: {class: "flex-grow-1 me-2"}
+  %>
+  <%= f.submit "Envoyer", class: "btn btn-primary" %>
+<% end %>
