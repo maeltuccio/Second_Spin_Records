@@ -15,6 +15,19 @@
 
   <body>
     <%= render "shared/navbar" %>
+   <!-- Vidéo en arrière-plan -->
+  <video class="video-background" autoplay muted loop>
+    <source src="https://media.ntslive.co.uk/static/island-time-1600x900-30fps-8ed7d9535492b79332e519348896d756.mp4" type="video/mp4">
+    Désolé, votre navigateur ne supporte pas les vidéos HTML5.
+  </video>
+
+  <!-- Contenu visible par-dessus la vidéo -->
+  <div class="content">
+
+  </div>
+
+
+
     <%= render "shared/flashes" %>
 
     <%= yield %>

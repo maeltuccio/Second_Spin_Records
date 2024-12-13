@@ -1,0 +1,21 @@
+<%= form_with model: [ @disc, Comment.new ], data: { controller: "comment-form", action: "submit->comment-form#submit" }, html: { data: { comment_form_target: "form" } } do |form| %>
+  <div class="rating">
+    <%= form.label :rating, "Évaluation :" %>
+    <span class="stars">
+      <%= form.radio_button :rating, 5 %>⭐
+      <%= form.radio_button :rating, 4 %>⭐
+      <%= form.radio_button :rating, 3 %>⭐
+      <%= form.radio_button :rating, 2 %>⭐
+      <%= form.radio_button :rating, 1 %>⭐
+    </span>
+  </div>
+
+  <div>
+    <%= form.label :content, "Votre commentaire" %>
+    <%= form.text_area :content, rows: 3 %>
+  </div>
+
+  <div>
+    <%= form.submit "Envoyer" %>
+  </div>
+<% end %>

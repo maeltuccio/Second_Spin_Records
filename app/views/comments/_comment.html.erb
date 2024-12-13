@@ -1,0 +1,5 @@
+<div class="comment">
+  <p><strong><%= comment.user.email %> :</strong></p>
+  <p><%= "★" * comment.rating %> <%= "☆" * (5 - comment.rating) %></p>
+  <p><%= comment.content %></p>  <!-- Remplacer `comment.comment` par `comment.content` -->
+</div>
