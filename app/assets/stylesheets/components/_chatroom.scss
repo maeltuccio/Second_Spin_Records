@@ -1,0 +1,83 @@
+
+.chatroom-title {
+  font-family: 'Raleway', sans-serif;
+  font-size: 19px;
+  color: #333;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  padding: 10px 0;
+  color: black;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, -2, 9, 0.1);
+}
+
+.chat-container {
+  max-width: 916px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#messages {
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  max-height: 400px;
+  overflow-y: scroll;
+}
+
+.message {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.message.sent {
+  justify-content: flex-end;
+}
+
+
+.message.sent .message-content {
+  background-color: #d1e7ff;
+  color: #333;
+  border-radius: 12px 12px 0 12px;
+  padding: 8px 15px;
+}
+
+
+.message .message-content {
+  background-color: #e1f7e7;
+  color: #333;
+  border-radius: 12px 12px 12px 0;
+  padding: 8px 15px;
+}
+
+.message-user {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.message-content {
+  display: inline-block;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+
+.message-input {
+  border-radius: 20px;
+  padding: 10px;
+}
+
+
+.btn-primary {
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-weight: bold;
+}
