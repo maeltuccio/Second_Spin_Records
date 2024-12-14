@@ -1,7 +1,8 @@
 
-<div class="product-page">
-  <h1 class="poppins-semibold"><%= @disc.title %></h1>
-  <div class="product-card">
+<div class="product-page row"> <h1 ><%= @disc.title %> - <%= @disc.artist %></h1>
+<p></p>
+
+  <div class="product-card col-md-8">
 <!-- Cover Image -->
   <% if @disc.cover_url.present? %>
     <div class="cover-image">
@@ -9,12 +10,14 @@
     </div>
   <% end %>
   <div class="product-meta ">
+
     <p><strong>Artist:</strong> <%= @disc.artist %></p>
     <p><strong>Genre:</strong> <%= @disc.genre.presence || "Unknown" %></p>
+
     <p><strong>Release Date:</strong> <%= @disc.release_date.presence || "Unknown" %></p>
-    <p><strong>Suggested Price:</strong> <%= number_to_currency(@disc.suggested_price) %></p>
     <p><strong>Label:</strong> <%= @disc.label.presence || "Unknown" %></p>
     <p><strong>Catalog Number:</strong> <%= @disc.cat_number.presence || "N/A" %></p>
+    <p><strong>Suggested Price:</strong> <%= number_to_currency(@disc.suggested_price) %></p>
 
 <!-- Contact seller button  -->
 
@@ -30,7 +33,7 @@
   </div>
 </div>
 
-  <h2 class="mt-5 poppins-semibold">Tracks:</h2>
+<div class="col-md-4">
   <%= render "music_player", disc: @disc %>
 
   <% if @disc.tracks.present? %>
@@ -42,14 +45,6 @@
   <% else %>
     <p>No tracks available.</p>
   <% end %>
-
-<%= render "comments/form" %>
-
-
-  <!-- Liste des commentaires -->
-  <div id="comments_list">
-    <%= render partial: "comments/comment", collection: @disc.comments, as: :comment %>
-  </div>
 
   <h2 class="mt-5">Recommendations:</h2>
   <% if @recommended_discs.present? %>
@@ -68,7 +63,21 @@
 
   <!-- Navigation Links -->
   <div class="product-nav">
-    <%= link_to "Back to all discs", discs_path, class: "btn btn-primary" %><br>
-    <%= link_to "See more recommendations", reco_disc_path(@disc), class: "btn btn-info" %>
+        <%= link_to "See more recommendations", reco_disc_path(@disc), class: "btn btn-wishlist mt-3" %>
+<%= link_to "Back to all discs", discs_path, class: "btn btn-call-to-action  mt-3" %><br>
   </div>
+</div>
+
+
+<div class="comment-section col-md-8">
+
+    <!-- Commentaires -->
+    <%= render "comments/form" %>
+
+
+  <!-- Liste des commentaires -->
+  <div id="comments_list">
+    <%= render partial: "comments/comment", collection: @disc.comments, as: :comment %>
+  </div>
+</div>
 </div>
