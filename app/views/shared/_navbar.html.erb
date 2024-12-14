@@ -23,20 +23,23 @@
       <% if user_signed_in? %>
         <!-- Dashboard -->
         <li class="nav-item">
-          <%= link_to dashboard_path, class: "nav-link d-flex align-items-center" do %>
-            <i class="bi bi-house"></i>
-            <span class="ms-2">Dashboards</span>
-          <% end %>
+          <%= link_to dashboard_path, class: "nav-link d-flex align-items-center"  do %>
+           <i class="fa-solid fa-house"></i> <p>Dashboard</p>
+        <% end %>
         </li>
 
         <!-- Messages -->
         <li class="nav-item">
-          <%= link_to "Messages", chatrooms_path, class: "nav-link" %>
+          <%= link_to chatrooms_path, class: "nav-link" do %>
+           <i class="fa-regular fa-envelope"></i> <p>Messages</p>
+        <% end %>
         </li>
 
         <!-- Poster un disque -->
         <li class="nav-item">
-          <%= link_to "Poster un disque", new_disc_path, class: "nav-link" %>
+          <%= link_to new_disc_path, class: "nav-link" do %>
+          <i class="fa-regular fa-plus"></i>  <p>Add a Record </p>
+        <% end %>
         </li>
 
         <!-- Menu déroulant de l'utilisateur -->

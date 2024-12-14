@@ -41,3 +41,21 @@
     opacity: 1;
   }
 }
+
+.btn-call-to-action {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #0f0725;
+  color: white;
+  text-shadow: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  opacity: 0.8;
+
+  &:hover {
+    background-color: #422397;
+  }
+}

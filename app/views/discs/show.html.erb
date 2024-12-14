@@ -16,15 +16,19 @@
     <p><strong>Label:</strong> <%= @disc.label.presence || "Unknown" %></p>
     <p><strong>Catalog Number:</strong> <%= @disc.cat_number.presence || "N/A" %></p>
 
-    <!-- Wishlist Button -->
- <%= link_to disc_wishlists_path(@disc), data: { turbo_method: :post }, class: "btn btn-wishlist mt-3" do %>
-  <i class="fa-solid fa-heart"></i> Ajouter à la Wishlist
-<% end %>
-  </div>
+<!-- Contact seller button  -->
+
     <% @disc.collections.each do |collection|%>
-<%= link_to "discuter avec l'owner", chat_with_owner_path(collection.user) unless collection.user == current_user %>
-<% end %>
- </div>
+      <%= link_to "Contact Seller", chat_with_owner_path(collection.user), class: "btn btn-call-to-action  mt-3" unless collection.user == current_user %>
+    <% end %>
+
+ <!-- Wishlist Button -->
+
+    <%= link_to disc_wishlists_path(@disc), data: { turbo_method: :post }, class: "btn btn-wishlist mt-3" do %>
+      <i class="fa-solid fa-heart"></i>
+    <% end %>
+  </div>
+</div>
 
   <h2 class="mt-5 poppins-semibold">Tracks:</h2>
   <%= render "music_player", disc: @disc %>
