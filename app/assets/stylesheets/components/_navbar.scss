@@ -4,6 +4,10 @@
   padding: 0.5rem 1rem;
   .navbar-logo {
     height: 150px; // Taille du logo ajustée
+    // Ajuste la position du logo pour le centrer
+    margin-top: -1rem;
+    margin-bottom: -3rem;
+
   }
   .search-bar {
     flex: 1;
