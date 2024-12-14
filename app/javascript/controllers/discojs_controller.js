@@ -2,7 +2,7 @@
 import { Controller } from "@hotwired/stimulus";
 import { Discojs } from "discojs";
 
-// Connects to data-controller="disco"
+// Connects to data-controller="discojs" in the HTML
 export default class extends Controller {
   static targets = ["title", "artist", "genre", "label", "catNumber", "coverUrl", "coverImage", "releaseDate", "searchResults", "searchInput"];
 
@@ -14,7 +14,7 @@ export default class extends Controller {
 
     this.client = client;
   }
-
+// Search for a release
   search(event) {
     console.log("search")
     event.preventDefault();
