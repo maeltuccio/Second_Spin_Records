@@ -1,4 +1,4 @@
-<turbo-frame id="dashboard_content">
+<turbo-frame id="dashboard_content1">
   <h1>Votre Wishlist</h1>
   <% if @wishlists.any? %>
     <ul>
@@ -19,4 +19,65 @@
   <% else %>
     <p>Votre wishlist est vide pour le moment.</p>
   <% end %>
+</turbo-frame>
+
+
+<turbo-frame id="dashboard_content1">
+
+<!-- Liste des disques -->
+<ul class="list-group">
+  <% @wishlists.each do |wishlist| %>
+
+    <div class="card-mini poppins-italic">
+      <div class="card-mini-content">
+        <h3 class="card-mini-title"><%= wishlist.disc.title %></h3>
+        <p><strong>Artist:</strong> <%= wishlist.disc.artist %></p>
+        <p><strong>Genre:</strong> <%= wishlist.disc.genre %></p>
+        <p><strong>Label:</strong> <%= wishlist.disc.label %></p>
+        <p><strong>Release Date:</strong> <%= wishlist.disc.release_date.present? ? wishlist.disc.release_date : "Unknown" %></p>
+        <p><strong>Catalog Number:</strong> <%= wishlist.disc.cat_number %></p>
+    </div>
+
+      <!-- Affichage de l'image de couverture si elle existe -->
+      <% if wishlist.disc.cover_url.present? %>
+        <div class="card-mini-image" style="background-image: url('<%= wishlist.disc.cover_url %>');"></div>
+      <% end %>
+    </div>
+
+  <% end %>
+</ul>
+</turbo-frame>
+<turbo-frame id="dashboard_content">
+
+ <% if @wishlists.present? %>
+    <div class="recommended-list">
+      <% @wishlists.each do |wishlist| %>
+        <div class="recommended-disc">
+          <%= link_to wishlist_path(wishlist) do %>
+         <div class="reco-mini poppins-italic">
+            <div class="reco-mini-content">
+              <h3 class="reco-mini-title"><%= wishlist.disc.title %></h3>
+              <p><strong>Artist:</strong> <%= wishlist.disc.artist %></p>
+              <p><strong>Genre:</strong> <%= wishlist.disc.genre %></p>
+              <p><strong>Label:</strong> <%= wishlist.disc.label %></p>
+              <p><strong>Release Date:</strong> <%= wishlist.disc.release_date.present? ? wishlist.disc.release_date : "Unknown" %></p>
+              <p><strong>Catalog Number:</strong> <%= wishlist.disc.cat_number %></p>
+
+            </div>
+
+      <!-- Affichage de l'image de couverture si elle existe -->
+          <% if wishlist.disc.cover_url.present? %>
+            <div class="reco-mini-image" style="background-image: url('<%= wishlist.disc.cover_url %>');"></div>
+          <% end %>
+        </div><%= link_to 'Supprimer', wishlist_path(wishlist),
+              data: { turbo_method: :delete, confirm: 'Êtes-vous sûr de vouloir supprimer cet élément de votre wishlist ?' },
+              class: 'btn btn-danger mt-2' %>
+    </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% else %>
+    <p>No recommendations available.</p>
+  <% end %>
+  </div>
 </turbo-frame>

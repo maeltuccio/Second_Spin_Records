@@ -1,4 +1,4 @@
-<turbo-frame id="dashboard_content">
+<turbo-frame id="dashboard_content1">
   <h1>Votre Collection</h1>
   <% if @collections.any? %>
     <ul>
@@ -22,4 +22,30 @@
 </turbo-frame>
 
   </ul>
+</turbo-frame>
+
+<turbo-frame id="dashboard_content">
+
+<!-- Liste des disques -->
+<ul class="list-group">
+  <% @collections.each do |collection| %>
+
+    <div class="card-mini poppins-italic">
+      <div class="card-mini-content">
+        <h3 class="card-mini-title"><%= collection.disc.title %></h3>
+        <p><strong>Artist:</strong> <%= collection.disc.artist %></p>
+        <p><strong>Genre:</strong> <%= collection.disc.genre %></p>
+        <p><strong>Label:</strong> <%= collection.disc.label %></p>
+        <p><strong>Release Date:</strong> <%= collection.disc.release_date.present? ? collection.disc.release_date : "Unknown" %></p>
+        <p><strong>Catalog Number:</strong> <%= collection.disc.cat_number %></p>
+    </div>
+
+      <!-- Affichage de l'image de couverture si elle existe -->
+      <% if collection.disc.cover_url.present? %>
+        <div class="card-mini-image" style="background-image: url('<%= collection.disc.cover_url %>');"></div>
+      <% end %>
+    </div>
+
+  <% end %>
+</ul>
 </turbo-frame>

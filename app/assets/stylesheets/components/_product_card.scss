@@ -28,8 +28,14 @@
   font-size: 1.2rem;
   color: #f7f7f7;
   text-align: justify; /* Justifie le texte pour un meilleur rendu */
-  justify-content: space-between;
+  display: flex;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Ombre du texte pour plus de lisibilité */
+  justify-content: center;
+  flex-direction: column;
+
+  align-items: flex-start;
+  //padding: 10px 0;
+
 
   strong {
     font-weight: bold;
@@ -50,7 +56,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(270deg, rgba(0, 0, 0, 0.634), transparent); /* Dégradé noir transparent */
+  background: linear-gradient(270deg, rgba(0, 0, 0, 0.449), transparent); /* Dégradé noir transparent */
   //background: repeating-radial-gradient(black, transparent 100px); /* Crée un motif de cercles noirs funky mode */
 
   opacity: 0.8; /* Applique la transparence uniquement sur le fond */
