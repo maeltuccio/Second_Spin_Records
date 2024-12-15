@@ -1,0 +1,93 @@
+/* Style général pour la carte */
+h2 {
+  font-size: 2rem;
+  margin: 1rem;
+}
+
+.reco-mini {
+  position: relative;
+  width: 300px;  /* Taille réduite de la carte */
+  height: 2rem; /* Hauteur fixe pour la carte */
+  //border-radius: 10px; /* Coins arrondis */
+  background-color: #fff; /* Fond blanc */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  overflow: hidden; /* Empêche l'image de déborder */
+  transition: transform 0.5s ease; /* Transition pour l'agrandissement */
+  cursor: pointer; /* Pointeur de la souris sur la carte */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  justify-self: center;/* Place le texte en bas de la carte */
+}
+
+/* Effet d'agrandissement au survol de la carte */
+.reco-mini:hover {
+  transform: scale(1.3);  /* Légère augmentation de la taille */
+  height: 300px;
+}
+
+/* Contenu de la carte */
+.reco-mini-content {
+  position: absolute;
+  bottom: 10px;  /* Assurez-vous que le contenu est en bas de la carte */
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;  /* Texte en blanc */
+  opacity: 0;    /* Texte masqué par défaut */
+  text-align: center;
+  padding: 10px;  /* Réduire le padding pour que le texte tienne mieux */
+  transition: opacity 0.3s ease;  /* Transition pour l'apparition du texte */
+  z-index: 2;
+  width: 100%;    /* Le texte occupe toute la largeur de la carte */
+  box-sizing: border-box;
+  max-height: 100%;  /* Limiter la hauteur du texte à 60% de la carte */
+  overflow: hidden;  /* Eviter que le texte dépasse */
+  text-overflow: ellipsis;  /* Ajouter des points de suspension si le texte est trop long */
+  font-size: 14px; /* Réduire la taille du texte pour l'adapter */
+}
+
+/* Apparition du texte au survol */
+.reco-mini:hover .reco-mini-content {
+  opacity: 1;
+  color: #fff;
+}
+
+/* Optionnel : Améliorer la lisibilité du texte avec une ombre portée */
+.reco-mini-content h3,
+.reco-mini-content p {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Ombre du texte pour plus de lisibilité */
+}
+
+/* Image en arrière-plan */
+.reco-mini-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover; /* L'image couvre entièrement l'espace de la carte */
+  background-position: center; /* Centrer l'image */
+  transition: filter 0.3s ease;  /* Transition pour l'effet d'assombrissement */
+  z-index: 1;
+}
+
+/* Effet de survol pour l'image */
+.reco-mini:hover .reco-mini-image {
+  filter: brightness(0.5); /* Assombrir l'image au survol */
+}
+
+/* Le lien (a) qui enveloppe la carte */
+.reco-mini-link {
+  display: block;  /* Faire en sorte que l'ensemble de la carte soit cliquable */
+  text-decoration: none; /* Enlever la sous-ligne du lien */
+}
+
+.fas fa-heart {
+  color: rgb(85, 85, 85);
+  font-size: 1.5rem;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  &:hover {
+    color:red  }
+}
