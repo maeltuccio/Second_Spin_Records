@@ -20,7 +20,7 @@
   border-radius: 10px;
   //width: 800px;
   overflow: hidden; /* Cache les parties de l'image qui dépassent */
-  box-shadow: 0 20px 20px 0 rgba(21, 9, 9, 0.6);
+  //box-shadow: 0 20px 20px 0 rgba(21, 9, 9, 0.6);
 }
 .product-meta {
   padding-top: 40px;
@@ -55,7 +55,7 @@
 
   opacity: 0.8; /* Applique la transparence uniquement sur le fond */
   z-index: -1; /* Assure que le fond est derrière le contenu */
-  //border-radius: 50%; /* Arrondit les coins pour un effet plus doux */
+  border-radius: 259px; /* Arrondit les coins pour un effet plus doux */
 }
 
 .cover-image {
