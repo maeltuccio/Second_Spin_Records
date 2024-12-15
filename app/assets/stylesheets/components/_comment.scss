@@ -8,10 +8,11 @@
   flex-direction: row-reverse;
   justify-content: center;
   padding: 2rem;
-  background: linear-gradient(270deg, #b8a4d3, transparent); /* Dégradé noir transparent */
+  background: linear-gradient(270deg, #000000a5, transparent); /* Dégradé noir transparent */
 
   //background-color: rgba($color: #b8a4d3, $alpha: 0.2);
   border-radius: 10px;
+  //box-shadow: 0 20px 20px 0 rgba(21, 9, 9, 0.6);
   box-shadow: 0 20px 20px 0 rgba(21, 9, 9, 0.6);
 
 }

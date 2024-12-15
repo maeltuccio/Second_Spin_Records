@@ -1,7 +1,17 @@
 /* Style général pour la carte */
 h2 {
-  font-size: 2rem;
-  margin: 1rem;
+  padding-block: 2rem;
+  font-family: "Poppins", serif;
+  font-weight: 400;
+  font-size: 2.5rem;
+  color: #000000;
+  padding-inline-start: 3rem;
+  text-align: center;
+  //text-shadow: 2px 2px 4px #000000;
+  padding-block: 1rem;
+
+
+
 }
 
 .reco-mini {
@@ -69,11 +79,13 @@ h2 {
   background-position: center; /* Centrer l'image */
   transition: filter 0.3s ease;  /* Transition pour l'effet d'assombrissement */
   z-index: 1;
+  filter: brightness(0.7); /* Assombrir l'image au survol */
+
 }
 
 /* Effet de survol pour l'image */
 .reco-mini:hover .reco-mini-image {
-  filter: brightness(0.5); /* Assombrir l'image au survol */
+  filter: brightness(1); /* Assombrir l'image au survol */
 }
 
 /* Le lien (a) qui enveloppe la carte */

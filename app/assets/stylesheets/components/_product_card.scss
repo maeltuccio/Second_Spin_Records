@@ -50,12 +50,12 @@
   left: 0;
   right: 0;
   bottom: 0;
-  //background: linear-gradient(270deg, black, transparent); /* Dégradé noir transparent */
-  background: repeating-radial-gradient(black, transparent 100px); /* Crée un motif de cercles noirs funky mode */
+  background: linear-gradient(270deg, rgba(0, 0, 0, 0.634), transparent); /* Dégradé noir transparent */
+  //background: repeating-radial-gradient(black, transparent 100px); /* Crée un motif de cercles noirs funky mode */
 
   opacity: 0.8; /* Applique la transparence uniquement sur le fond */
   z-index: -1; /* Assure que le fond est derrière le contenu */
-  border-radius: 50%; /* Arrondit les coins pour un effet plus doux */
+  //border-radius: 50%; /* Arrondit les coins pour un effet plus doux */
 }
 
 .cover-image {
