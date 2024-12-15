@@ -5,15 +5,22 @@
   max-height: 50%;
   margin: 0 auto;
   padding: 30px;
-  margin-inline: 20px;
+  // margin-inline: 20px;
   font-family: Arial, sans-serif;
-
   justify-content: space-between;
-
-
+  
 }
 
-
+.product-card {
+  position: relative; /* Nécessaire pour positionner le pseudo-élément par rapport à ce conteneur */
+  display: flex;
+  height: fit-content;
+  flex-wrap: wrap;
+  gap: 20px;
+  border-radius: 10px;
+  overflow: hidden; /* Cache les parties de l'image qui dépassent */
+  box-shadow: 0 20px 20px 0 rgba(21, 9, 9, 0.6);
+}
 .product-meta {
   padding-top: 30px;
   padding-inline: 56px;
@@ -22,11 +29,6 @@
   text-align: justify; /* Justifie le texte pour un meilleur rendu */
   justify-content: space-between;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Ombre du texte pour plus de lisibilité */
-
-
-
-
-
 
   strong {
     font-weight: bold;
@@ -38,29 +40,21 @@
 
   }
 }
-.product-card {
-  position: relative; /* Nécessaire pour positionner le pseudo-élément par rapport à ce conteneur */
-  display: flex;
-  height: fit-content;
-  flex-wrap: wrap;
-  gap: 20px;
-  border-radius: 10px;
-  overflow: hidden; /* Cache les parties de l'image qui dépassent */
-  box-shadow: 0 20px 20px 0 rgba(21, 9, 9, 0.6);
-}
 
 .product-card::before {
+
   content: ""; /* Nécessaire pour créer un pseudo-élément */
   position: absolute; /* Positionner en arrière-plan */
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  // background: linear-gradient(270deg, black, transparent); /* Dégradé noir transparent */
+  //background: linear-gradient(270deg, black, transparent); /* Dégradé noir transparent */
   background: repeating-radial-gradient(black, transparent 100px); /* Crée un motif de cercles noirs funky mode */
 
-  opacity: 0.7; /* Applique la transparence uniquement sur le fond */
+  opacity: 0.8; /* Applique la transparence uniquement sur le fond */
   z-index: -1; /* Assure que le fond est derrière le contenu */
+  border-radius: 50%; /* Arrondit les coins pour un effet plus doux */
 }
 
 .cover-image {

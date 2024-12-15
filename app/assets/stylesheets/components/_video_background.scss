@@ -30,7 +30,7 @@
 .video-background {
   position: fixed; /* Position fixe pour que la vidéo couvre toute la fenêtre */
   top: 0;
-  opacity: 0.5; /* Opacité de la vidéo */
+  opacity: 0.5; /* Opacité de la vidéo 0.5 reglage normal 0 pour faire disparaitre*/
   filter: grayscale(50%); /* Image en noir et blanc */
   left: 0;
   width: 100%;  /* La vidéo couvre toute la largeur de la fenêtre */

@@ -1,8 +1,8 @@
 
 <div class="product-page row"> <h1 ><%= @disc.title %> - <%= @disc.artist %></h1>
 <p></p>
-
-  <div class="product-card col-md-8">
+<div class="col-md-8">
+  <div class="product-card">
 <!-- Cover Image -->
   <% if @disc.cover_url.present? %>
     <div class="cover-image">
@@ -32,8 +32,21 @@
     <% end %>
   </div>
 </div>
+<div class="comment-section">
 
+    <!-- Commentaires -->
+    <%= render "comments/form" %>
+
+
+  <!-- Liste des commentaires -->
+  <div id="comments_list">
+    <%= render partial: "comments/comment", collection: @disc.comments, as: :comment %>
+  </div>
+</div>
+</div>
 <div class="col-md-4">
+
+
   <%= render "music_player", disc: @disc %>
 
   <% if @disc.tracks.present? %>
@@ -45,39 +58,46 @@
   <% else %>
     <p>No tracks available.</p>
   <% end %>
-
-  <h2 class="mt-5">Recommendations:</h2>
+<!-- Recommendations -->
+   <!-- Navigation Links -->
+<div class="product-nav">
+  <%= link_to "See more recommendations", reco_disc_path(@disc), class: "btn btn-wishlist mt-3" %>
+  <%= link_to "Back to all discs", discs_path, class: "btn btn-call-to-action  mt-3" %><br>
+</div><h2>Recommendations:</h2>
   <% if @recommended_discs.present? %>
-    <ul class="recommended-list">
+    <div class="recommended-list">
       <% @recommended_discs.each do |recommended_disc| %>
-        <li>
-          <%= link_to recommended_disc.title, disc_path(recommended_disc) %> -
-          <%= recommended_disc.artist %>,
-          <%= recommended_disc.genre.presence || "Unknown genre" %>
-        </li>
+        <div class="recommended-disc">
+          <%= link_to disc_path(recommended_disc) do %>
+         <div class="card-mini poppins-italic">
+      <div class="card-mini-content">
+        <h3 class="card-mini-title"><%= recommended_disc.title %></h3>
+        <p><strong>Artist:</strong> <%= recommended_disc.artist %></p>
+        <p><strong>Genre:</strong> <%= recommended_disc.genre %></p>
+        <p><strong>Label:</strong> <%= recommended_disc.label %></p>
+        <p><strong>Release Date:</strong> <%= recommended_disc.release_date.present? ? recommended_disc.release_date : "Unknown" %></p>
+        <p><strong>Catalog Number:</strong> <%= recommended_disc.cat_number %></p>
+    </div>
+
+      <!-- Affichage de l'image de couverture si elle existe -->
+      <% if recommended_disc.cover_url.present? %>
+        <div class="card-mini-image" style="background-image: url('<%= recommended_disc.cover_url %>');"></div>
       <% end %>
-    </ul>
+    </div>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
   <% else %>
     <p>No recommendations available.</p>
   <% end %>
 
-  <!-- Navigation Links -->
-  <div class="product-nav">
-        <%= link_to "See more recommendations", reco_disc_path(@disc), class: "btn btn-wishlist mt-3" %>
-<%= link_to "Back to all discs", discs_path, class: "btn btn-call-to-action  mt-3" %><br>
-  </div>
+
+
 </div>
 
 
-<div class="comment-section col-md-8">
-
-    <!-- Commentaires -->
-    <%= render "comments/form" %>
 
 
-  <!-- Liste des commentaires -->
-  <div id="comments_list">
-    <%= render partial: "comments/comment", collection: @disc.comments, as: :comment %>
-  </div>
-</div>
+
 </div>
