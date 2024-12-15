@@ -11,12 +11,12 @@ class DiscsController < ApplicationController
 
   def show
     @disc = Disc.find(params[:id])
-    @recommended_discs = Disc.where("genre ILIKE ?", @disc.genre).where.not(id: @disc.id).limit(5)
+    @recommended_discs = Disc.where("genre ILIKE ?", @disc.genre).where.not(id: @disc.id).limit(10)
   end
 
   def create
     @disc = Disc.new(disc_params)
-    
+
     if @disc.save
       # Ajouter le disque automatiquement à la collection de l'utilisateur
       @collection = Collection.new(user: current_user, disc: @disc)
