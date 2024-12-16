@@ -57,7 +57,7 @@
 <% @disc.collections.each do |collection|%>
   <% if collection.is_owner?(current_user) %>
    <%= link_to collection_path(collection), data: { turbo_method: :delete, turbo_confirm: 'Êtes-vous sûr de vouloir supprimer cet élément de votre collection ?' }, class: 'btn btn-danger mt-2'  do %>
-   <i class="fa-solid fa-heart"></i>
+   <i class="fa-solid fa-trash"></i>
   <% end %>
 <% end %>
 <% end %>

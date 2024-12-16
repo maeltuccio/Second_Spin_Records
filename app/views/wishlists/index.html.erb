@@ -1,25 +1,5 @@
-<turbo-frame id="dashboard_content1">
-  <h1>Votre Wishlist</h1>
-  <% if @wishlists.any? %>
-    <ul>
-      <% @wishlists.each do |wishlist| %>
-        <li>
-          <strong><%= wishlist.disc.title %></strong> - <%= wishlist.disc.artist %><br>
-          <% if wishlist.disc.cover_url.present? %>
-            <div>
-              <%= image_tag wishlist.disc.cover_url, alt: "Cover for #{wishlist.disc.title}", class: "img-thumbnail" %>
-            </div>
-          <% end %>
-          <%= link_to 'Supprimer', wishlist_path(wishlist),
-              data: { turbo_method: :delete, confirm: 'Êtes-vous sûr de vouloir supprimer cet élément de votre wishlist ?' },
-              class: 'btn btn-danger mt-2' %>
-        </li>
-      <% end %>
-    </ul>
-  <% else %>
-    <p>Votre wishlist est vide pour le moment.</p>
-  <% end %>
-</turbo-frame>
+  <h1>Your Wishlist</h1>
+
 
 
 <turbo-frame id="dashboard_content1">
@@ -28,9 +8,9 @@
 <ul class="list-group">
   <% @wishlists.each do |wishlist| %>
 
-    <div class="card-mini poppins-italic">
-      <div class="card-mini-content">
-        <h3 class="card-mini-title"><%= wishlist.disc.title %></h3>
+    <div class="card poppins-italic">
+      <div class="card-content">
+        <h3 class="card-title"><%= wishlist.disc.title %></h3>
         <p><strong>Artist:</strong> <%= wishlist.disc.artist %></p>
         <p><strong>Genre:</strong> <%= wishlist.disc.genre %></p>
         <p><strong>Label:</strong> <%= wishlist.disc.label %></p>
@@ -40,7 +20,7 @@
 
       <!-- Affichage de l'image de couverture si elle existe -->
       <% if wishlist.disc.cover_url.present? %>
-        <div class="card-mini-image" style="background-image: url('<%= wishlist.disc.cover_url %>');"></div>
+        <div class="card-image" style="background-image: url('<%= wishlist.disc.cover_url %>');"></div>
       <% end %>
     </div>
 
@@ -50,13 +30,13 @@
 <turbo-frame id="dashboard_content">
 
  <% if @wishlists.present? %>
-    <div class="recommended-list">
+    <div class="card-minimmended-list">
       <% @wishlists.each do |wishlist| %>
         <div class="recommended-disc">
-          <%= link_to wishlist_path(wishlist) do %>
-         <div class="reco-mini poppins-italic">
-            <div class="reco-mini-content">
-              <h3 class="reco-mini-title"><%= wishlist.disc.title %></h3>
+          <%= link_to disc_path(wishlist.disc) do %>
+         <div class="card-mini poppins-italic">
+            <div class="card-mini-content">
+              <h3 class="card-mini-title"><%= wishlist.disc.title %></h3>
               <p><strong>Artist:</strong> <%= wishlist.disc.artist %></p>
               <p><strong>Genre:</strong> <%= wishlist.disc.genre %></p>
               <p><strong>Label:</strong> <%= wishlist.disc.label %></p>
@@ -67,7 +47,7 @@
 
       <!-- Affichage de l'image de couverture si elle existe -->
           <% if wishlist.disc.cover_url.present? %>
-            <div class="reco-mini-image" style="background-image: url('<%= wishlist.disc.cover_url %>');"></div>
+            <div class="card-mini-image" style="background-image: url('<%= wishlist.disc.cover_url %>');"></div>
           <% end %>
         </div><%= link_to 'Supprimer', wishlist_path(wishlist),
               data: { turbo_method: :delete, confirm: 'Êtes-vous sûr de vouloir supprimer cet élément de votre wishlist ?' },
@@ -77,7 +57,7 @@
       <% end %>
     </div>
   <% else %>
-    <p>No recommendations available.</p>
+    <p>No card-minimmendations available.</p>
   <% end %>
   </div>
 </turbo-frame>

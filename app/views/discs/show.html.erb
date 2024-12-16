@@ -1,16 +1,64 @@
-
+<%= turbo_frame_tag "dashboard_content" do %>
 <div class="product-page row">
-  <div>
-  <h1 ><%= @disc.title %> <br> <%= @disc.artist %></h1>
-  </div>
-<p></p>
+ 
 <div class="col-md-8">
 
+<h1 ><%= @disc.title %> <br> <%= @disc.artist %></h1>
 
-  <%= turbo_frame_tag "dashboard_content" do %>
   <%= render "shared/product_card" %>
 
-<% end %>
+<%= render "music_player", disc: @disc %>
+
+</div>
+<div id="musicrecobar" class="col-md-4">
+
+
+
+<%= render "shared/reco_mini" %>
+
+<!-- Contact seller button  -->
+
+    <% @disc.collections.each do |collection|%>
+      <%= link_to "Contact Seller", chat_with_owner_path(collection.user), class: "btn btn-call-to-action  mt-3" unless collection.user == current_user %>
+    <% end %>
+
+
+
+ <!-- Wishlist Button -->
+
+    <%# <% @disc.collections.each do |collection|%>
+    <% unless (@disc.wishlists.any? {|wishlist| wishlist.user == current_user} )|| (@disc.collections.any? {|collection| collection.user == current_user})%>
+    <%= link_to disc_wishlists_path(@disc), data: { turbo_method: :post }, class: "btn btn-wishlist mt-3"  do %>
+      <i class="fa-solid fa-heart"></i>
+      <% end %>
+    <% end %>
+<%# <% end %>
+
+ <!-- Remove from Wishlist Button -->
+    <% @disc.collections.each do |collection|%>
+      <% if collection.is_owner?(current_user) %>
+        <%= link_to collection_path(collection), data: { turbo_method: :delete, turbo_confirm: 'Êtes-vous sûr de vouloir supprimer cet élément de votre collection ?' }, class: 'btn btn-danger mt-2'  do %>
+          <i class="fa-solid fa-trash"></i>
+        <% end %>
+      <% end %>
+      <% end %>
+
+
+
+
+
+  <% if @disc.tracks.present? %>
+    <ul class="track-list">
+      <% @disc.tracks.each do |track| %>
+        <li><%= track.name %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No tracks available.</p>
+  <% end %>
+</div>
+
+
 
 
 <div class="comment-section">
@@ -26,30 +74,5 @@
 </div>
 </div>
 
-<div id="musicrecobar" class="col-md-4">
-
-
-  <%= render "music_player", disc: @disc %>
-
-  <% if @disc.tracks.present? %>
-    <ul class="track-list">
-      <% @disc.tracks.each do |track| %>
-        <li><%= track.name %></li>
-      <% end %>
-    </ul>
-  <% else %>
-    <p>No tracks available.</p>
-  <% end %>
-
-
-<%= render "shared/reco_mini" %>
-
-
-
 </div>
-
-
-
-
-
-</div>
+<% end %>

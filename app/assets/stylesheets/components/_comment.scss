@@ -1,11 +1,12 @@
 .comment-section {
   font-family: "Poppins", serif;
+  margin-left: 1rem;
   margin-top: 2rem;
   display: flex;
   flex-direction: row-reverse;
-  justify-content: center;
+  justify-content: space-between;
   padding: 2rem;
-  background: linear-gradient(270deg, #00000079, transparent); /* Dégradé noir transparent */
+  background: linear-gradient(90deg, #00000079, transparent); /* Dégradé noir transparent */
   border-radius: 10px;
 }
 
@@ -15,10 +16,10 @@
   padding: 1rem;
   line-height: 1;
   margin: 1rem;
-  width: 50%;
+  width: 60%;
 
   /* Ajout des propriétés suivantes */
-  max-height: 20vh;  /* Hauteur maximale ajustée */
+  max-height: 30vh;  /* Hauteur maximale ajustée */
   overflow-y: auto;  /* Barre de défilement verticale si nécessaire */
 }
 
