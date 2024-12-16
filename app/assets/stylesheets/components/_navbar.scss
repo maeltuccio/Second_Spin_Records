@@ -1,6 +1,6 @@
 .navbar-lewagon {
-  background-color: #fff;
-  border-bottom: 1px solid #ddd;
+  background-color: black;
+  //border-bottom: 1px solid #ddd;
   padding: 0.5rem 1rem;
   .navbar-logo {
     height: 150px; // Taille du logo ajustée
@@ -26,12 +26,12 @@
     .btn-search {
       background: none;
       border: none;
-      color: #666;
+      color: #ffffff;
       margin-left: -35px;
       font-size: 1.2rem;
       cursor: pointer;
       &:hover {
-        color: #007bff; // Change la couleur au survol
+        color: #978989; // Change la couleur au survol
       }
     }
   }
@@ -41,7 +41,7 @@
       .nav-link {
         display: flex;
         align-items: center;
-        color: #333;
+        color: #ffffff;
         text-decoration: none;
         font-size: 0.9rem;
         i {
@@ -55,7 +55,7 @@
         }
 
         &:hover {
-          color: #007bff;
+          color: #978989;
           p {
             opacity: 1;
 
