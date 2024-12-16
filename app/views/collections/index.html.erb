@@ -39,7 +39,9 @@
         <p><strong>Label:</strong> <%= collection.disc.label %></p>
         <p><strong>Release Date:</strong> <%= collection.disc.release_date.present? ? collection.disc.release_date : "Unknown" %></p>
         <p><strong>Catalog Number:</strong> <%= collection.disc.cat_number %></p>
+    
     </div>
+
 
       <!-- Affichage de l'image de couverture si elle existe -->
       <% if collection.disc.cover_url.present? %>

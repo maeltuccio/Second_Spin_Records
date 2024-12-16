@@ -25,14 +25,15 @@ class Disc < ApplicationRecord
         cover_url: cover_url
       }
     ]
-
   end
+
+  
 
   # Méthode pour calculer la moyenne du rating
   def average_rating
     comments.average(:rating).to_f
   end
-  
+
   private
 
   def normalize_genre
