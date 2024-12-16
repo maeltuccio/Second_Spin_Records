@@ -1,11 +1,5 @@
 <!-- Carrousel pour afficher les disques -->
 <div id="discCarousel" class="carousel slide" data-bs-ride="carousel">
-  <!-- Indicateurs -->
-  <ol class="carousel-indicators">
-    <% @discs.each_with_index do |disc, index| %>
-      <li data-bs-target="#discCarousel" data-bs-slide-to="<%= index %>" class="<%= 'active' if index.zero? %>"></li>
-    <% end %>
-  </ol>
  <!-- Contenu du carrousel -->
 <div class="carousel-inner">
   <!-- Affichage de chaque image -->
@@ -26,7 +20,7 @@
 
   <div class="carousel-item">
     <%= image_tag "banner-pic/nouveaute.png", class: "d-block w-100", alt: "Nouveaute Image" %>
-   
+
   </div>
 </div>
 
@@ -41,7 +35,7 @@
   </a>
 </div>
 <!-- Liste des disques -->
-<h2 class= "mt-3 ml-3">Fresh in the crates </h2>
+<h2 class= "ml-3">Fresh in the crates </h2>
 <ul class="list-group">
   <% @discs.each do |disc| %>
 
