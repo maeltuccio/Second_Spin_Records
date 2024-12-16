@@ -1,5 +1,7 @@
+
+
 <h1 class="text-center my-4">My Chatrooms</h1>
-<div class="d-flex">
+<turbo-frame id="dashboard_content"><div class="d-flex">
 <div class="container w-50">
   <div class="row justify-content-center">
     <% @chatrooms.each do |chatroom| %>
@@ -27,3 +29,4 @@
 </div>
 <%= turbo_frame_tag "chatroom", class: "w-50" %>
 </div>
+</turbo-frame>
