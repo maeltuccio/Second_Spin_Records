@@ -1,12 +1,22 @@
-<%= form_with model: [ @disc, Comment.new ], data: { controller: "comment-form", action: "submit->comment-form#submit" }, html: { data: { comment_form_target: "form" } } do |form| %>
+<%= form_with model: [ @disc, Comment.new ],
+ html: { data: { controller: "comment-form", comment_form_target: "form", action: "submit->comment-form#submit turbo:submit-end->comment-form#reset" } } do |form| %>
   <div class="rating">
     <%= form.label :rating, "Évaluation :" %>
     <span class="stars">
-      <%= form.radio_button :rating, 5 %>⭐
-      <%= form.radio_button :rating, 4 %>⭐
-      <%= form.radio_button :rating, 3 %>⭐
-      <%= form.radio_button :rating, 2 %>⭐
-      <%= form.radio_button :rating, 1 %>⭐
+      <%= form.radio_button :rating, 5, id: "rating_5" %>
+      <label for="rating_5" class="star">&#9733;</label> <!-- 5 étoiles -->
+
+      <%= form.radio_button :rating, 4, id: "rating_4" %>
+      <label for="rating_4" class="star">&#9733;</label> <!-- 4 étoiles -->
+
+      <%= form.radio_button :rating, 3, id: "rating_3" %>
+      <label for="rating_3" class="star">&#9733;</label> <!-- 3 étoiles -->
+
+      <%= form.radio_button :rating, 2, id: "rating_2" %>
+      <label for="rating_2" class="star">&#9733;</label> <!-- 2 étoiles -->
+
+      <%= form.radio_button :rating, 1, id: "rating_1" %>
+      <label for="rating_1" class="star">&#9733;</label> <!-- 1 étoile -->
     </span>
   </div>
 
