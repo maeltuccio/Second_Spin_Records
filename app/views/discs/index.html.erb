@@ -6,22 +6,42 @@
       <li data-bs-target="#discCarousel" data-bs-slide-to="<%= index %>" class="<%= 'active' if index.zero? %>"></li>
     <% end %>
   </ol>
-  <!-- Contenu du carrousel -->
-  <div class="carousel-inner">
-    <% @discs.each_with_index do |disc, index| %>
-      <div class="carousel-item <%= 'active' if index.zero? %>">
-        <% if disc.cover_url.present? %>
-          <img src="<%= disc.cover_url %>" class="d-block w-100" alt="Cover of <%= disc.title %>">
-        <% else %>
-            <%= image_tag "secondspin.png", class:"d-block w-100", alt: "Default cover" %>
-        <% end %>
-        <div class="carousel-caption d-none d-md-block">
-          <h5><%= disc.title %></h5>
-          <p><%= disc.artist %></p>
-        </div>
-      </div>
-    <% end %>
+ <!-- Contenu du carrousel -->
+<div class="carousel-inner">
+  <!-- Affichage de chaque image -->
+  <div class="carousel-item active">
+    <%= image_tag "banner-pic/miles.png", class: "d-block w-100", alt: "Miles Image" %>
+    <div class="carousel-caption d-none d-md-block">
+      <h5>Miles</h5>
+      <p>Description de l'image Miles</p>
+    </div>
   </div>
+
+  <div class="carousel-item">
+    <%= image_tag "banner-pic/hardcore.png", class: "d-block w-100", alt: "Hardcore Image" %>
+    <div class="carousel-caption d-none d-md-block">
+      <h5>Hardcore</h5>
+      <p>Description de l'image Hardcore</p>
+    </div>
+  </div>
+
+  <div class="carousel-item">
+    <%= image_tag "banner-pic/tuto.png", class: "d-block w-100", alt: "Tuto Image" %>
+    <div class="carousel-caption d-none d-md-block">
+      <h5>Tuto</h5>
+      <p>Description de l'image Tuto</p>
+    </div>
+  </div>
+
+  <div class="carousel-item">
+    <%= image_tag "banner-pic/nouveaute.png", class: "d-block w-100", alt: "Nouveaute Image" %>
+    <div class="carousel-caption d-none d-md-block">
+      <h5>Nouveauté</h5>
+      <p>Description de l'image Nouveauté</p>
+    </div>
+  </div>
+</div>
+
   <!-- Contrôles -->
   <a class="carousel-control-prev" href="#discCarousel" role="button" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
