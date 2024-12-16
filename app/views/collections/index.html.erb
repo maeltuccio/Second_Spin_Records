@@ -1,28 +1,4 @@
-<turbo-frame id="dashboard_content1">
-  <h1>Votre Collection</h1>
-  <% if @collections.any? %>
-    <ul>
-      <% @collections.each do |collection| %>
-        <li>
-          <strong><%= collection.disc.title %></strong> - <%= collection.disc.artist %><br>
-          <% if collection.disc.cover_url.present? %>
-            <div>
-              <%= image_tag collection.disc.cover_url, alt: "Cover for #{collection.disc.title}", class: "img-thumbnail" %>
-            </div>
-          <% end %>
-          <%= link_to 'Supprimer', collection_path(collection),
-              data: { turbo_method: :delete, confirm: 'Êtes-vous sûr de vouloir supprimer cet élément de votre collection ?' },
-              class: 'btn btn-danger mt-2' %>
-        </li>
-      <% end %>
-    </ul>
-  <% else %>
-    <p>Votre collection est vide pour le moment.</p>
-  <% end %>
-</turbo-frame>
-
-  </ul>
-</turbo-frame>
+  <h1>Your Collection</h1>
 
 <turbo-frame id="dashboard_content">
 
@@ -39,7 +15,9 @@
         <p><strong>Label:</strong> <%= collection.disc.label %></p>
         <p><strong>Release Date:</strong> <%= collection.disc.release_date.present? ? collection.disc.release_date : "Unknown" %></p>
         <p><strong>Catalog Number:</strong> <%= collection.disc.cat_number %></p>
+
     </div>
+
 
       <!-- Affichage de l'image de couverture si elle existe -->
       <% if collection.disc.cover_url.present? %>

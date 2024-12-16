@@ -4,8 +4,8 @@
   max-width: 100%;
   max-height: 50%;
   margin: 0 auto;
-  padding: 30px;
-  // margin-inline: 20px;
+  padding-top: 0;
+  padding-inline: 1rem;  // margin-inline: 20px;
   font-family: Arial, sans-serif;
   justify-content: space-between;
 
@@ -21,9 +21,10 @@
   //width: 800px;
   overflow: hidden; /* Cache les parties de l'image qui dépassent */
   //box-shadow: 0 20px 20px 0 rgba(21, 9, 9, 0.6);
+  margin-bottom: 6rem;
 }
 .product-meta {
-  padding-top: 40px;
+  padding-top: 1rem;
   //padding-inline: 56px;
   font-size: 1.2rem;
   color: #f7f7f7;
@@ -76,7 +77,7 @@
 
 
   img {
-    height: auto;
+    height: 100%; /* Ajuste la hauteur de l'image */
     object-fit: cover; /* Garantit que l'image couvre bien l'espace sans déformation */
 
   }
