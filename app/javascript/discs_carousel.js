@@ -5,5 +5,5 @@ document.addEventListener("DOMContentLoaded", () => {
     items[currentIndex].classList.remove("active");
     currentIndex = (currentIndex + 1) % items.length;
     items[currentIndex].classList.add("active");
-  }, 3000); // Change toutes les 3 secondes
+  }, 5000); // Change toutes les 3 secondes
 });
