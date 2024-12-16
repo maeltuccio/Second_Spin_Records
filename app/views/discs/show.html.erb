@@ -11,6 +11,29 @@
   <% end %>
   <div class="product-meta ">
 
+
+
+
+<div class="star-ratings-container">
+  <% if @average_rating.nil? %>
+    <p>Pas encore d'évaluations</p>
+  <% else %>
+    <div class="star-rating">
+      <% (1..5).each do |i| %>
+        <% if @average_rating >= i %>
+          <span class="star-rating filled">&#9733;</span> <!-- Étoile pleine -->
+        <% elsif @average_rating >= i - 0.5 %>
+          <span class="star-rating half">&#9733;</span> <!-- Étoile partielle -->
+        <% else %>
+          <span class="star-rating">&#9733;</span> <!-- Étoile vide -->
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+
+
     <p><strong>Artist:</strong> <%= @disc.artist %></p>
     <p><strong>Genre:</strong> <%= @disc.genre.presence || "Unknown" %></p>
 

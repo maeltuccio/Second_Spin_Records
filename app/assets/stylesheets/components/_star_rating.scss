@@ -10,7 +10,11 @@ input[type="radio"] {
   font-size: 24px;
   color: #ccc; /* Couleur par défaut des étoiles */
   cursor: pointer;
+
 }
+
+
+
 
 .star {
   padding: 0 5px;
@@ -20,15 +24,57 @@ input[type="radio"] {
 /* Couleur des étoiles au survol */
 .star:hover,
 input[type="radio"]:checked + label {
-  color: gold; /* Couleur dorée pour l'étoile sélectionnée ou en survol */
+  color: black; /* Couleur dorée pour l'étoile sélectionnée ou en survol */
 }
 
 /* Lorsque l'étoile est sélectionnée, elle reste dorée */
 input[type="radio"]:checked ~ label {
-  color: gold;
+  color: black;
 }
 
 /* Optionnel : Ajout d'un effet de survol pour les étoiles non sélectionnées */
 .star:hover {
-  color: orange;
+  color: rgb(58, 58, 58);
+}
+
+/* Couleur pour les étoiles pleines */
+.star.filled {
+  color: gold;  /* Couleur dorée pour les étoiles pleines */
+}
+
+/* Pour les étoiles partielles, on utilise un dégradé */
+.star.half {
+  background: linear-gradient(to right, gold 50%, #ccc 50%); /* Un dégradé de doré (50%) à gris */
+  -webkit-background-clip: text;  /* Nécessaire pour "clipper" le texte */
+  background-clip: text; /* Nécessaire pour "clipper" le texte */
+  color: transparent;  /* Le texte (l'étoile) devient transparent, seule la couleur de fond est visible */
+}
+
+/* Base pour toutes les étoiles */
+.star-rating {
+  font-size: 1.5rem;  /* Ajustez la taille des étoiles si nécessaire */
+  color: #ccc;  /* Couleur pour les étoiles non remplies */
+  margin-right: 2px; /* Espacement entre les étoiles */
+  display: inline-block;  /* Assurez-vous qu'elles s'affichent sur une même ligne */
+  position: relative;
+  text-shadow: none !important; /* Désactive l'ombre par défaut */
+
+}
+
+/* Couleur pour les étoiles pleines */
+.star-rating.filled {
+  color: rgb(0, 0, 0);  /* Couleur dorée pour les étoiles pleines */
+}
+
+/* Pour les étoiles partielles, on utilise un dégradé */
+.star-rating.half {
+  background: linear-gradient(to right, black 50%, #ccc 50%); /* Un dégradé de doré (50%) à gris */
+  -webkit-background-clip: text;  /* Nécessaire pour "clipper" le texte */
+  background-clip: text; /* Nécessaire pour "clipper" le texte */
+  color: transparent;  /* Le texte (l'étoile) devient transparent, seule la couleur de fond est visible */
+}
+
+/* Option : pour que la taille des étoiles s'adapte à la largeur du container */
+.star-ratings-container {
+  font-size: 30px;  /* Ajuste la taille des étoiles */
 }
