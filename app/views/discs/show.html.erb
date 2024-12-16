@@ -5,59 +5,14 @@
   </div>
 <p></p>
 <div class="col-md-8">
-  <div class="product-card">
-<!-- Cover Image -->
-  <% if @disc.cover_url.present? %>
-    <div class="cover-image">
-      <img src="<%= @disc.cover_url %>" alt="Cover of <%= @disc.title %>" class="img-fluid"/>
-    </div>
-  <% end %>
-  <div class="product-meta ">
 
 
+  <%= turbo_frame_tag "dashboard_content" do %>
+  <%= render "shared/product_card" %>
+
+<% end %>
 
 
-<div class="star-ratings-container">
-  <% if @average_rating.nil? %>
-    <p>Pas encore d'évaluations</p>
-  <% else %>
-    <div class="star-rating">
-      <% (1..5).each do |i| %>
-        <% if @average_rating >= i %>
-          <span class="star-rating filled">&#9733;</span> <!-- Étoile pleine -->
-        <% elsif @average_rating >= i - 0.5 %>
-          <span class="star-rating half">&#9733;</span> <!-- Étoile partielle -->
-        <% else %>
-          <span class="star-rating">&#9733;</span> <!-- Étoile vide -->
-        <% end %>
-      <% end %>
-    </div>
-  <% end %>
-</div>
-
-
-
-    <p><strong>Artist:</strong> <%= @disc.artist %></p>
-    <p><strong>Genre:</strong> <%= @disc.genre.presence || "Unknown" %></p>
-
-    <p><strong>Release Date:</strong> <%= @disc.release_date.presence || "Unknown" %></p>
-    <p><strong>Label:</strong> <%= @disc.label.presence || "Unknown" %></p>
-    <p><strong>Catalog Number:</strong> <%= @disc.cat_number.presence || "N/A" %></p>
-    <p><strong>Suggested Price:</strong> <%= number_to_currency(@disc.suggested_price) %></p>
-
-<!-- Contact seller button  -->
-
-    <% @disc.collections.each do |collection|%>
-      <%= link_to "Contact Seller", chat_with_owner_path(collection.user), class: "btn btn-call-to-action  mt-3" unless collection.user == current_user %>
-    <% end %>
-
- <!-- Wishlist Button -->
-
-    <%= link_to disc_wishlists_path(@disc), data: { turbo_method: :post }, class: "btn btn-wishlist mt-3" do %>
-      <i class="fa-solid fa-heart"></i>
-    <% end %>
-  </div>
-</div>
 <div class="comment-section">
 
     <!-- Commentaires -->
@@ -70,6 +25,7 @@
   </div>
 </div>
 </div>
+
 <div id="musicrecobar" class="col-md-4">
 
 

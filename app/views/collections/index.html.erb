@@ -29,6 +29,7 @@
 <!-- Liste des disques -->
 <ul class="list-group">
   <% @collections.each do |collection| %>
+   <%= link_to disc_path(collection.disc) do %>
 
     <div class="card-mini poppins-italic">
       <div class="card-mini-content">
@@ -45,6 +46,7 @@
         <div class="card-mini-image" style="background-image: url('<%= collection.disc.cover_url %>');"></div>
       <% end %>
     </div>
+    <% end %>
 
   <% end %>
 </ul>
