@@ -1,5 +1,5 @@
 <h2>Chatroom avec <%= chatroom.user1 == current_user ? chatroom.user2.email : chatroom.user1.email %></h2>
-
+<%= turbo_frame_tag "chatroom", class: "w-50" do %>
 <div id="messages" class="message-container mb-4">
   <% messages.each do |message| %>
     <%= render "messages/message", message: message, user: current_user %>
@@ -16,4 +16,5 @@
       input_html: { class: "form-control message-input" } %>
     <%= f.submit "Envoyer", class: "btn btn-primary" %>
   </div>
+<% end %>
 <% end %>

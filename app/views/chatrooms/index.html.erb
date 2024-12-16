@@ -1,6 +1,6 @@
 <h1 class="text-center my-4">My Chatrooms</h1>
-
-<div class="container">
+<div class="d-flex">
+<div class="container w-50">
   <div class="row justify-content-center">
     <% @chatrooms.each do |chatroom| %>
       <div class="col-12 col-md-8 mb-3">
@@ -17,7 +17,7 @@
               </p>
             </div>
             <div>
-              <%= link_to "View Chat", chatroom_path(chatroom), class: "btn btn-primary btn-sm" %>
+              <%= link_to "View Chat", chatroom_path(chatroom),data:{turbo_frame:"chatroom"}, class: "btn btn-primary btn-sm" %>
             </div>
           </div>
         </div>
@@ -25,4 +25,5 @@
     <% end %>
   </div>
 </div>
-
+<%= turbo_frame_tag "chatroom", class: "w-50" %>
+</div>
