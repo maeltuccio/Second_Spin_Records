@@ -1,17 +1,40 @@
-h1 {
-  padding-block: 2rem;
+h1{
   font-family: "Poppins", serif;
   font-weight: 600;
-  font-size: 2.5rem;
-  color: #000000;
-  padding-inline-start: 3rem;
-  text-align: center;
-  //text-shadow: 2px 2px 4px #000000;
-  padding-block: 1rem;
-
-
+  font-size: 2rem; /* Ajuste la taille du texte */
+  color: #ffffff; /* Texte blanc */
+  text-align: center; /* Centre le texte */
+  background-color: #000000; /* Fond noir */
+  padding-block: 5px; /* Ajuste le padding général */
+  padding-left: 15px;
+  padding-right: 70px;/* Augmente le padding à gauche pour déplacer le texte vers la gauche */
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 53px) 148%, 0 100%); /* Diagonale ajustée */
+  display: inline-block; /* Fond ajusté au contenu */
+  margin: 0 auto; /* Centré horizontalement */
 }
 
+.product-page h1 {
+  font-size: 1.5rem; /* Réduit la taille du titre */
+  text-align: left; /* Aligne le texte à gauche */
+  margin-left: 0; /* Supprime tout centrage */
+  margin-bottom: 1rem; /* Ajoute un peu d'espace en bas */
+}
+h2{
+  font-family: "Poppins", serif;
+  font-weight: 600;
+  font-size: 2rem; /* Ajuste la taille du texte */
+  color: #ffffff; /* Texte blanc */
+  text-align: center; /* Centre le texte */
+  background-color: #000000; /* Fond noir */
+  padding-block: 5px; /* Ajuste le padding général */
+  padding-left: 15px;
+  padding-right: 70px;/* Augmente le padding à gauche pour déplacer le texte vers la gauche */
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 53px) 148%, 0 100%); /* Diagonale ajustée */
+  display: inline-block; /* Fond ajusté au contenu */
+  margin: 0 auto; /* Centré horizontalement */
+}
 #musicrecobar {
   justify-items: center
 

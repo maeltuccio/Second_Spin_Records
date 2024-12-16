@@ -1,12 +1,9 @@
 <!-- Recommendations -->
 
    <!-- Navigation Links -->
-<div class="product-nav">
-  <%= link_to "See more recommendations", reco_disc_path(@disc), class: "btn btn-wishlist mt-3" %>
-  <%= link_to "Back to all discs", discs_path, class: "btn btn-call-to-action  mt-3" %><br>
-</div>
+
 <div class="reco-content">
-<h2 class="poppins-semibold ">Recommendations</h2>
+<h2 class="poppins-semibold mt-2 mb-4 ">Recommendations</h2>
 
   <% if @recommended_discs.present? %>
     <div class="recommended-list">
@@ -36,3 +33,7 @@
     <p>No recommendations available.</p>
   <% end %>
   </div>
+<div class="product-nav">
+  <%= link_to "See more recommendations", reco_disc_path(@disc), class: "btn btn-wishlist mt-3" %>
+  <%= link_to "Back to all discs", discs_path, class: "btn btn-call-to-action  mt-3" %><br>
+</div>
