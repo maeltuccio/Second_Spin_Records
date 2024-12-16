@@ -1,0 +1,19 @@
+<h2>Chatroom avec <%= chatroom.user1 == current_user ? chatroom.user2.email : chatroom.user1.email %></h2>
+
+<div id="messages" class="message-container mb-4">
+  <% messages.each do |message| %>
+    <%= render "messages/message", message: message, user: current_user %>
+  <% end %>
+</div>
+
+<%= simple_form_for [chatroom, Message.new],
+  html: { class: "d-flex mt-3", data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } } do |f| %>
+  <div class="d-flex w-100">
+    <%= f.input :content,
+      label: false,
+      placeholder: "Message",
+      wrapper_html: { class: "flex-grow-1 me-2" },
+      input_html: { class: "form-control message-input" } %>
+    <%= f.submit "Envoyer", class: "btn btn-primary" %>
+  </div>
+<% end %>
