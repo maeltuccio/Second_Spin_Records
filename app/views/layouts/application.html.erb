@@ -17,7 +17,7 @@
 
   <body data-current-user-id="<%= current_user ? current_user.id : "" %>">
     <%= render "shared/navbar" %>
-    
+
     <%= render "shared/background_video" %>
 
 
@@ -25,7 +25,10 @@
 
 
     <%= render "shared/flashes" %>
+    <!-- Footer -->
+
 
     <%= yield %>
+    <%= render "shared/footer" %>
   </body>
 </html>
