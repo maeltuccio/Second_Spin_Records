@@ -45,9 +45,11 @@
     <% end %>
 
  <!-- Wishlist Button -->
+    <% @disc.collections.each do |collection|%>
 
-    <%= link_to disc_wishlists_path(@disc), data: { turbo_method: :post }, class: "btn btn-wishlist mt-3" do %>
+    <%= link_to disc_wishlists_path(@disc), data: { turbo_method: :post }, class: "btn btn-wishlist mt-3" unless collection.user == current_user do %>
       <i class="fa-solid fa-heart"></i>
+    <% end %>
     <% end %>
   </div>
 </div>
