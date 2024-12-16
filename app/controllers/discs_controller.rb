@@ -12,6 +12,8 @@ class DiscsController < ApplicationController
   def show
     @disc = Disc.find(params[:id])
     @recommended_discs = Disc.where("genre ILIKE ?", @disc.genre).where.not(id: @disc.id).limit(10)
+    # Calcul de la moyenne des notes
+    @average_rating = @disc.average_rating
   end
 
   def create
