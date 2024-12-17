@@ -1,9 +1,9 @@
-<h1 class="text-center my-4">Bienvenue sur votre espace, <br> <%= current_user.email %> !</h1>
+<h1 class="fix-h1 text-center my-4">Bienvenue sur votre espace, <br> <%= current_user.email %> !</h1>
 
 <div class="container-fluid">
   <div class="row">
     <!-- Barre de navigation verticale -->
-    <div class="dashbar col-md-2 bg-dark vh-100 d-flex flex-column align-items-center py-4">
+    <div class="dashbar">
       <!-- Liens avec des icônes -->
       <%= link_to dashboard_path, class: "nav-link text-white my-3 d-flex flex-column align-items-center" do %>
         <i class="fa-solid fa-house fa-2x"></i>
@@ -30,16 +30,14 @@
           <div class="row">
             <div class="col-12">
               <!-- Bannière avec bouton "Play Now" -->
-              <div class="dashboard-banner text-center my-5">
-                <h3 class="mb-4">Explorez de nouveaux horizons musicaux</h3>
-                <%= link_to "Play Now", collections_path, class: "btn btn-dark btn-lg" %>
+              <div class="dashboard-banner">
               </div>
             </div>
           </div>
 
           <!-- Section "For You" avec des recommandations basées sur la wishlist -->
           <div class="for-you-section">
-            <h3 class="my-4">For You</h3>
+            <h2 class=" fix-h2 my-4">For You</h2>
             <ul class="list-group">
               <% @recommendations.each do |recommendation| %>
                 <li class="list-group-item">

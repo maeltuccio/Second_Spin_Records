@@ -12,6 +12,7 @@ h1{
   clip-path: polygon(0 0, 100% 0, calc(100% - 53px) 148%, 0 100%); /* Diagonale ajustée */
   display: inline-block; /* Fond ajusté au contenu */
   margin: 0 auto; /* Centré horizontalement */
+  margin-top: 20px;
 }
 
 .product-page h1 {
@@ -32,6 +33,23 @@ h2{
   padding-right: 70px;/* Augmente le padding à gauche pour déplacer le texte vers la gauche */
   position: relative;
   clip-path: polygon(0 0, 100% 0, calc(100% - 53px) 148%, 0 100%); /* Diagonale ajustée */
+  display: inline-block; /* Fond ajusté au contenu */
+  margin: 0 auto; /* Centré horizontalement */
+  margin-top: 20px;
+}
+
+#h2-invert{
+  font-family: "Poppins", serif;
+  font-weight: 600;
+  font-size: 2rem; /* Ajuste la taille du texte */
+  color: #ffffff; /* Texte blanc */
+  text-align: center; /* Centre le texte */
+  background-color: #000000; /* Fond noir */
+  padding-block: 5px; /* Ajuste le padding général */
+  padding-left: 15px;
+  padding-right: 70px; /* Augmente le padding à gauche pour déplacer le texte vers la gauche */
+  position: relative;
+  clip-path: polygon(0 0, 53px 148%, 100% 0, 100% 100%); /* Polygone inversé pour l'effet miroir */
   display: inline-block; /* Fond ajusté au contenu */
   margin: 0 auto; /* Centré horizontalement */
 }

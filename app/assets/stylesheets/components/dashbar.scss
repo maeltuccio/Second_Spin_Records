@@ -1,7 +1,49 @@
-
 .dashbar {
-  width: 104px; 
-  height: 500px;
-  background-color: #333;
+  width: 104px;
+  height: 840px;
+  background-color: #0b0b0b;
   margin-left: 17px;
+
+  /* Styles transférés de la div */
+  background-color: #020202; /* Fond sombre */
+  display: flex; /* Flexbox pour disposer les éléments */
+  flex-direction: column; /* Aligne les éléments en colonne */
+  align-items: center; /* Centre les éléments horizontalement */
+  justify-content: center; /* Centre les éléments verticalement */
+  padding: 2.5rem 0; /* Padding de 2.5rem sur le haut et le bas */
+
+  /* Propriétés de taille pour la vue */
+  min-height: 100vh; /* Hauteur minimale de 100% de la hauteur de la fenêtre */
+  padding-left: 20px; /* Padding à gauche pour la largeur interne */
+  padding-right: 20px; /* Padding à droite */
+  box-sizing: border-box; /* Pour inclure le padding et la bordure dans les dimensions */
+  position:relative;
+  top:-128px;
+}
+.dashbar i {
+  font-size: 2rem; /* Augmente la taille des icônes */
+
+}
+
+.dashboard-banner {
+  background-image: url('banner-pic/fouilledisque.png');
+  background-size: cover; /* Pour que l'image couvre toute la div */
+  background-position: center; /* Pour centrer l'image */
+  background-repeat: no-repeat; /* Empêche la répétition de l'image */
+  padding: 188px 20px; /* Ajuste le padding pour le contenu interne */
+  color: white; /* S'assure que le texte reste visible */
+  border-radius: 10px; /* Ajoute un effet esthétique avec des coins arrondis (facultatif) */
+  position: relative;
+  right:-29px;
+}
+
+.fix-h2{
+right:-30px;
+top:22px;
+}
+
+h1.fix-h1{
+  right:-165px;
+  bottom: -2px
+
 }
