@@ -1,6 +1,6 @@
-.chatcontainer {
-  height: calc(100vh - 96px - 64px);
-}
+
+
+/////////////PARTIE DE DROITE (MESSAGES)//////////////////////
 .chatroom-title {
   font-family: 'Raleway', sans-serif;
   font-size: 19px;
@@ -82,4 +82,128 @@
   border-radius: 20px;
   padding: 10px 20px;
   font-weight: bold;
+}
+///////////////////PARTIE DE CHATROOM (GAUCHE)//////////////////
+
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Prend toute la hauteur de la fenêtre */
+}
+
+.sidebar-dashboard {
+  display: flex;
+  flex: 1;
+  overflow: hidden; /* Empêche le débordement */
+}
+
+.sidebar-section {
+  width: 25%; /* Largeur de la barre latérale */
+  background-color: #f8f9fa; /* Couleur de fond légèrement grise */
+  padding: 1rem;
+  overflow-y: auto; /* Scrolling vertical si nécessaire */
+  border-right: 1px solid #ddd; /* Ligne de séparation */
+  height:739px;
+}
+
+
+.sidebar-item {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  background-color: #fff; /* Fond blanc pour chaque item */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.sidebar-item:hover {
+  background-color: #e9ecef; /* Fond gris clair au survol */
+}
+.sidebar-user {
+  color: #352d41;
+  font-weight: bold;
+  transition: 0.3s ease;
+
+  &:hover {
+    color: #5a4e76;
+
+  }
+}
+.sidebar-link {
+  display: inline-flex
+;
+  align-items: center;
+  justify-content: center;
+  background-color: #aaaaaa00;
+  color: #00000030;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  }
+
+
+.sidebar-content {
+  flex: 1;
+  padding: 1rem;
+  background-color: #fff;
+  overflow-y: auto;
+  margin-block: 1px;
+  margin-right: 68px;
+  margin-left: 68px;
+  margin-bottom:110px;
+}
+
+.h2-chatroom {
+  height: 37px;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.sidebar-title {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #1b1818;
+}
+.sidebar-header {
+  position: relative;
+  right: 541px;
+  top: 28px;
+}
+
+#subtitle-chat {
+  color: black;
+  background-color: #e8e8e8;
+  font-family: "Poppins", serif;
+  font-weight: 600;
+  font-size: 17px;
+  text-align: center;
+  border-radius: 7px;
+  padding: 3px;
+  position: relative;
+  width: 98PX;
+}
+
+.content-message{
+    color: #000000ad;
+    font-family: "Noto Serif", serif;
+    box-shadow: 0px 3px 0px 0px rgba(95, 95, 95, 0.1);
+    background-color: #b4b4b438;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 7px;
+    padding: 3px;
+    position: relative;
+    width: 322PX;
+    padding-block: 19px;
+}
+
+.darker{
+  color:black;
+}
+.icon-section {
+position:relative;
+
 }
