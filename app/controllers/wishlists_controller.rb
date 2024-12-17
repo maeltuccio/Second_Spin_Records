@@ -6,19 +6,26 @@ class WishlistsController < ApplicationController
     @wishlist = Wishlist.new(user: current_user, disc: @disc)
 
     if @wishlist.save
-      redirect_to wishlists_path, notice: 'Le disque a été ajouté à votre wishlist.'
+      respond_to do |format|
+        format.html { redirect_to @disc, notice: 'Le disque a été ajouté à votre wishlist.' }
+        format.turbo_stream { render turbo_stream: turbo_stream.replace("wishlist-btn", partial: "wishlists/add_btn", locals: { disc: @disc, user: current_user }) }
+      end
+      # redirect_to @disc, notice: 'Le disque a été ajouté à votre wishlist.'
     else
-      redirect_to @disc, alert: 'Une erreur est survenue lors de l\'ajout à votre wishlist.'
+      redirect_to @disc, alert: 'An error occured while adding the disc to your wishlist.'
     end
   end
 
   def destroy
     @wishlist = current_user.wishlists.find(params[:id])
-
+    @disc = @wishlist.disc
     if @wishlist.destroy
-      redirect_to wishlists_path, notice: 'Le disque a été retiré de votre wishlist.'
+      respond_to do |format|
+        format.html { redirect_to @disc, notice: 'The Record was removed from your wishlist' }
+        format.turbo_stream { render turbo_stream: turbo_stream.replace("wishlist-btn", partial: "wishlists/add_btn", locals: { disc: @disc, user: current_user }) }
+      end
     else
-      redirect_to wishlists_path, alert: 'Une erreur est survenue lors de la suppression.'
+      redirect_to wishlists_path, alert: 'An error occured while removing the disc from your wishlist.'
     end
   end
 
