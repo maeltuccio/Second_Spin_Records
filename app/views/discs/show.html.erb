@@ -1,6 +1,7 @@
 <%= turbo_frame_tag "dashboard_content" do %>
+
 <div class="product-page row">
- 
+
 <div class="col-md-8">
 
 <h1 ><%= @disc.title %> <br> <%= @disc.artist %></h1>
@@ -18,10 +19,12 @@
 
 <!-- Contact seller button  -->
 
-    <% @disc.collections.each do |collection|%>
-      <%= link_to "Contact Seller", chat_with_owner_path(collection.user), class: "btn btn-call-to-action  mt-3" unless collection.user == current_user %>
-    <% end %>
+    <% @disc.wishlists.each do |wishlist|%>
+      <% if wishlist.user == current_user && @disc.collections.first.present? %>
 
+        <%= link_to "Contact Seller", chat_with_owner_path(@disc.collections.first.user), data: {turbo: false}, class: "btn btn-call-to-action  mt-3" %>
+       <% end %>
+    <% end %>
 
 
  <!-- Wishlist Button -->
@@ -46,16 +49,6 @@
 
 
 
-
-  <% if @disc.tracks.present? %>
-    <ul class="track-list">
-      <% @disc.tracks.each do |track| %>
-        <li><%= track.name %></li>
-      <% end %>
-    </ul>
-  <% else %>
-    <p>No tracks available.</p>
-  <% end %>
 </div>
 
 

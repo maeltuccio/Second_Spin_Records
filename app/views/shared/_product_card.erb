@@ -10,6 +10,16 @@
 
 
 
+
+
+
+
+    <p><strong>Artist:</strong> <%= @disc.artist %></p>
+    <p><strong>Genre:</strong> <%= @disc.genre.presence || "Unknown" %></p>
+
+    <p><strong>Release Date:</strong> <%= @disc.release_date.presence || "Unknown" %></p>
+    <p><strong>Label:</strong> <%= @disc.label.presence || "Unknown" %></p>
+    <p><strong>Catalog Number:</strong> <%= @disc.cat_number.presence || "N/A" %></p>
 <div class="star-ratings-container">
   <% if @average_rating.nil? %>
     <p>Pas encore d'évaluations</p>
@@ -27,39 +37,5 @@
     </div>
   <% end %>
 </div>
-
-
-
-    <p><strong>Artist:</strong> <%= @disc.artist %></p>
-    <p><strong>Genre:</strong> <%= @disc.genre.presence || "Unknown" %></p>
-
-    <p><strong>Release Date:</strong> <%= @disc.release_date.presence || "Unknown" %></p>
-    <p><strong>Label:</strong> <%= @disc.label.presence || "Unknown" %></p>
-    <p><strong>Catalog Number:</strong> <%= @disc.cat_number.presence || "N/A" %></p>
-    <p><strong>Suggested Price:</strong> <%= number_to_currency(@disc.suggested_price) %></p>
-
-<!-- Contact seller button  -->
-
-    <% @disc.collections.each do |collection|%>
-      <%= link_to "Contact Seller", chat_with_owner_path(collection.user), class: "btn btn-call-to-action  mt-3" unless collection.user == current_user %>
-      <% end %>
-
- <!-- Wishlist Button -->
-
-    <%# <% @disc.collections.each do |collection|%>
-    <% unless (@disc.wishlists.any? {|wishlist| wishlist.user == current_user} )|| (@disc.collections.any? {|collection| collection.user == current_user})%>
-    <%= link_to disc_wishlists_path(@disc), data: { turbo_method: :post }, class: "btn btn-wishlist mt-3"  do %>
-      <i class="fa-solid fa-heart"></i>
-      <% end %>
-    <% end %>
-<%# <% end %>
-  <!-- Remove from Wishlist Button -->
-<% @disc.collections.each do |collection|%>
-  <% if collection.is_owner?(current_user) %>
-   <%= link_to collection_path(collection), data: { turbo_method: :delete, turbo_confirm: 'Êtes-vous sûr de vouloir supprimer cet élément de votre collection ?' }, class: 'btn btn-danger mt-2'  do %>
-   <i class="fa-solid fa-trash"></i>
-  <% end %>
-<% end %>
-<% end %>
   </div>
 </div>
