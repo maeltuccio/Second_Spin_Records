@@ -1,4 +1,6 @@
 /* Style général pour la carte */
+
+
 .card-mini {
   position: relative;
   width: 300px;  /* Taille réduite de la carte */
@@ -12,6 +14,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end; /* Place le texte en bas de la carte */
+  justify-items: center;
 }
 
 /* Effet d'agrandissement au survol de la carte */
@@ -72,7 +75,9 @@
 /* Le lien (a) qui enveloppe la carte */
 .card-mini-link {
   display: block;  /* Faire en sorte que l'ensemble de la carte soit cliquable */
-  text-decoration: none; /* Enlever la sous-ligne du lien */
+  text-decoration: none;
+  justify-self: center;
+
 }
 
 .fas fa-heart {
