@@ -17,11 +17,11 @@
   height: fit-content;
   flex-wrap: wrap;
   gap: 20px;
-  border-radius: 10px;
+  //border-radius: 10px;
   //width: 800px;
   overflow: hidden; /* Cache les parties de l'image qui dépassent */
   //box-shadow: 0 20px 20px 0 rgba(21, 9, 9, 0.6);
-  margin-bottom: 6rem;
+  margin-bottom: 8rem;
 }
 .product-meta {
   padding-top: 1rem;
@@ -70,7 +70,7 @@
   flex: 1;
   max-width: 50%; /* Limite la taille de l'image à la moitié du conteneur */
   padding-right: 15px;
-  border-radius: 10px;
+  //border-radius: 10px;
   opacity: 1;  /* L'image reste pleinement opaque */
   transition: opacity 0.3s ease;  /* Transition pour l'effet d'assombrissement */
 
