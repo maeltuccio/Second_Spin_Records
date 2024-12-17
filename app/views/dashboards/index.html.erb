@@ -10,19 +10,19 @@
     <!-- Barre de navigation verticale -->
     <div class="dashbar">
       <!-- Liens avec des icônes -->
-      <%= link_to dashboard_path, class: "nav-link text-white my-3 d-flex flex-column align-items-center" do %>
+      <%= link_to dashboard_path, class: "nav-link my-3 d-flex flex-column align-items-center" do %>
         <i class="fa-solid fa-house fa-2x"></i>
         <span class="mt-2">Home</span>
       <% end %>
-      <%= link_to collections_path, data: { turbo_frame: "dashboard_content" }, class: "nav-link text-white my-3 d-flex flex-column align-items-center" do %>
+      <%= link_to collections_path, data: { turbo_frame: "dashboard_content" }, class: "nav-link my-3 d-flex flex-column align-items-center" do %>
         <i class="fa-solid fa-music fa-2x"></i>
         <span class="mt-2">Collection</span>
       <% end %>
-      <%= link_to wishlists_path, data: { turbo_frame: "dashboard_content" }, class: "nav-link text-white my-3 d-flex flex-column align-items-center" do %>
+      <%= link_to wishlists_path, data: { turbo_frame: "dashboard_content" }, class: "nav-link  my-3 d-flex flex-column align-items-center" do %>
         <i class="fa-regular fa-heart fa-2x"></i>
         <span class="mt-2">Wishlist</span>
       <% end %>
-      <%= link_to chatrooms_path, data: { turbo_frame: "dashboard_content" }, class: "nav-link text-white my-3 d-flex flex-column align-items-center" do %>
+      <%= link_to chatrooms_path, data: { turbo_frame: "dashboard_content" }, class: "nav-link  my-3 d-flex flex-column align-items-center" do %>
         <i class="fa-regular fa-message fa-2x"></i>
         <span class="mt-2">Chatrooms</span>
       <% end %>
@@ -40,18 +40,32 @@
             </div>
           </div>
 
-          <!-- Section "For You" avec des recommandations basées sur la wishlist -->
-          <div class="for-you-section">
-            <h2 class=" fix-h2 my-4">For You</h2>
-            <ul class="list-group">
-              <% @recommendations.each do |recommendation| %>
-                <li class="list-group-item">
-                  <strong><%= recommendation.title %></strong> - <%= recommendation.artist %>
-                  <%= link_to "écouter un extrait", "#", class: "btn btn-secondary btn-sm float-end" %>
-                </li>
-              <% end %>
-            </ul>
-          </div>
+          <!-- Liste des disques -->
+<ul class="list-group">
+  <% @recommendations.each do |recommendation| %>
+   <%= link_to disc_path(recommendation) do %>
+
+    <div class="card-mini poppins-italic">
+      <div class="card-mini-content">
+        <h3 class="card-mini-title"><%= recommendation.title %></h3>
+        <p><strong>Artist:</strong> <%= recommendation.artist %></p>
+        <p><strong>Genre:</strong> <%= recommendation.genre %></p>
+        <p><strong>Label:</strong> <%= recommendation.label %></p>
+        <p><strong>Release Date:</strong> <%= recommendation.release_date.present? ? recommendation.release_date : "Unknown" %></p>
+        <p><strong>Catalog Number:</strong> <%= recommendation.cat_number %></p>
+
+    </div>
+
+
+      <!-- Affichage de l'image de couverture si elle existe -->
+      <% if recommendation.cover_url.present? %>
+        <div class="card-mini-image" style="background-image: url('<%= recommendation.cover_url %>');"></div>
+      <% end %>
+    </div>
+    <% end %>
+
+  <% end %>
+</ul>
         </div>
       <% end %>
     </div>
