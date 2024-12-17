@@ -24,6 +24,7 @@
   background-color: #ffffff89;
   border-radius: 108px;
   box-shadow: 0 20px 20px 0 rgba(21, 9, 9, 0.6);
+
   display: flex;
   padding: 0px 25%;
   position: relative;
@@ -39,27 +40,25 @@
 
 .img-container::after {
   content: '';
-
   background-color: white;
   border-radius: 50%;
   position: absolute;
-  bottom: 100%;
-  left: -25%;
+  bottom: 75%;
+  left: -88%;
   width: 20px;
   height: 20px;
   transform: translate(-50%, 90%);
 }
-
 .img-container img {
-  border-radius: 50%;
+  border-radius: 71%;
+  -o-object-fit: cover;
   object-fit: cover;
   height: 110px;
   width: inherit;
   position: absolute;
-  bottom: 0;
-  left: -75%;
+  bottom: -15px;
+  left: -138%;
   animation: rotate 3s linear infinite;
-
   animation-play-state: paused;
 }
 
@@ -83,6 +82,8 @@
   align-items: center;
   justify-content: center;
   z-index: 1;
+  position: relative;
+  left: -61px;
 }
 
 .action-btn {

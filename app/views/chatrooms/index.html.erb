@@ -1,3 +1,4 @@
+
 <div class="sidebar-container">
   <h1 class="sidebar-header">My Chatrooms</h1>
   <turbo-frame id="dashboard_content">
@@ -10,6 +11,7 @@
           <%= link_to chatroom_path(chatroom), data: { turbo_frame: "chatroom" }, class: "sidebar-link" do %>
             <div class="sidebar-item">
               <p class="sidebar-title">
+
                 Chatroom with:
                 <% if current_user.id == chatroom.user1_id %>
                   <strong class="sidebar-user"><%= chatroom.user2.email %></strong>
@@ -31,7 +33,9 @@
             <i class="fa-solid fa-skull"></i>
           </div>
         </div>
+
       <% end %>
     </div>
   </turbo-frame>
 </div>
+
