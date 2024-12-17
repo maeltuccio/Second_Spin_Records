@@ -49,13 +49,17 @@ h1.fix-h1{
 }
 
 a.nav-link {
-  display: flex;
-  //align-items: center;
+
   color: #ffffff;
+
   span {opacity: 0;}
 }
 
 a.nav-link:hover {
   color: #978989;
-  span {opacity: 1;}
+
+  span {
+    opacity: 1;
+    transition: opacity 0.3s;
+  }
 }
