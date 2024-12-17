@@ -1,8 +1,9 @@
 
 <%= render "chatrooms/chatroom_video" %>
+<div class="chatcontainer">
 <h1 class="text-center my-4">My Chatrooms</h1>
 <turbo-frame id="dashboard_content"><div class="d-flex">
-<div class="container w-50">
+<div class="container w-50 ">
   <div class="row justify-content-center">
     <% @chatrooms.each do |chatroom| %>
       <div class="col-12 col-md-8 mb-3">
@@ -30,5 +31,5 @@
   </div>
 </div>
 <%= turbo_frame_tag "chatroom", class: "w-50" %>
-</div>
+</div></div>
 </turbo-frame>
