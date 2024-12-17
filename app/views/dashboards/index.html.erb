@@ -1,19 +1,30 @@
-<h1 class="text-center my-4">Bienvenue sur votre Dashboard, <%= current_user.email %> !</h1>
+<h1 class="text-center my-4">Bienvenue sur votre espace, <br> <%= current_user.email %> !</h1>
 
 <div class="container-fluid">
   <div class="row">
-    <!-- Menu de gauche -->
-    <div class="col-md-3">
-      <div class="list-group">
-        <%= link_to "Home", dashboard_path, class: "list-group-item list-group-item-action" %>
-        <%= link_to "Collection", collections_path, data: { turbo_frame: "dashboard_content" }, class: "list-group-item list-group-item-action" %>
-        <%= link_to "Wishlist", wishlists_path, data: { turbo_frame: "dashboard_content" }, class: "list-group-item list-group-item-action" %>
-        <%= link_to "Chatrooms", chatrooms_path, data: { turbo_frame: "dashboard_content" }, class: "list-group-item list-group-item-action" %>
-      </div>
+    <!-- Barre de navigation verticale -->
+    <div class="dashbar col-md-2 bg-dark vh-100 d-flex flex-column align-items-center py-4">
+      <!-- Liens avec des icônes -->
+      <%= link_to dashboard_path, class: "nav-link text-white my-3 d-flex flex-column align-items-center" do %>
+        <i class="fa-solid fa-house fa-2x"></i>
+        <span class="mt-2">Home</span>
+      <% end %>
+      <%= link_to collections_path, data: { turbo_frame: "dashboard_content" }, class: "nav-link text-white my-3 d-flex flex-column align-items-center" do %>
+        <i class="fa-solid fa-music fa-2x"></i>
+        <span class="mt-2">Collection</span>
+      <% end %>
+      <%= link_to wishlists_path, data: { turbo_frame: "dashboard_content" }, class: "nav-link text-white my-3 d-flex flex-column align-items-center" do %>
+        <i class="fa-regular fa-heart fa-2x"></i>
+        <span class="mt-2">Wishlist</span>
+      <% end %>
+      <%= link_to chatrooms_path, data: { turbo_frame: "dashboard_content" }, class: "nav-link text-white my-3 d-flex flex-column align-items-center" do %>
+        <i class="fa-regular fa-message fa-2x"></i>
+        <span class="mt-2">Chatrooms</span>
+      <% end %>
     </div>
 
     <!-- Contenu dynamique dans le Turbo Frame -->
-    <div class="col-md-9">
+    <div class="col-md-10">
       <%= turbo_frame_tag "dashboard_content" do %>
         <div class="dashboard-welcome">
           <div class="row">
@@ -21,7 +32,7 @@
               <!-- Bannière avec bouton "Play Now" -->
               <div class="dashboard-banner text-center my-5">
                 <h3 class="mb-4">Explorez de nouveaux horizons musicaux</h3>
-                <%= link_to "Play Now", collections_path, class: "btn btn-primary btn-lg" %>
+                <%= link_to "Play Now", collections_path, class: "btn btn-dark btn-lg" %>
               </div>
             </div>
           </div>
@@ -34,12 +45,12 @@
                 <li class="list-group-item">
                   <strong><%= recommendation.title %></strong> - <%= recommendation.artist %>
                   <%= link_to "écouter un extrait", "#", class: "btn btn-secondary btn-sm float-end" %>
-                  </li>
-              <% end %> <!-- Fermeture de la boucle each -->
+                </li>
+              <% end %>
             </ul>
           </div>
         </div>
-      <% end %> <!-- Fermeture du turbo_frame_tag -->
+      <% end %>
     </div>
   </div>
 </div>
