@@ -1,3 +1,5 @@
+<%= link_to "Back", :back %>
+
 <h1 class="chatroom-title">Vous discutez avec <%= @chatroom.user1.email %> et <%= @chatroom.user2.email %></h1>
 <%= turbo_frame_tag "chatroom", class: "w-50" do %>
 <%= turbo_stream_from @chatroom %>

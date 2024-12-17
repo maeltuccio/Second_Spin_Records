@@ -1,0 +1,178 @@
+$background-image: image-url('background.jpg');
+$form-bg-color: rgba(0,0,0,0.7);
+$text-color: #ffffff;
+$input-bg: transparent;
+$input-border-color: rgba(255,255,255,0.5);
+$input-text-color: #ffffff;
+$button-gradient-start: #2196f3;
+$button-gradient-end: #21cbf3;
+$font-family: 'Arial', sans-serif;
+html, body {
+  margin : 0;
+  padding : 0; // Assure que le fond couvre toute la hauteur de la fenêtre
+}
+
+body {
+  font-family: $font-family;
+  color: $text-color;
+}
+
+.page-background {
+  background: $background-image no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  width: 100%;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+footer {
+  margin: 0;
+  padding: 0;
+}
+
+.form-container {
+  background: $form-bg-color;
+  backdrop-filter: blur(8px); // Rend le fond du formulaire flou
+  border-radius: 8px;
+  padding: 10px 20px;
+  max-width: 700px;
+  width: 100%;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  margin: 0 auto; // Centre horizontalement la .form-container
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    text-align: center;
+    font-weight: bold;
+    color: $text-color;
+  }
+  .form-label h1 ~ p,
+  .form-container > p {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    color: rgba(255,255,255,0.8);
+  }
+  .form-group {
+    margin-bottom: 5px;
+    .form-label {
+      display: block;
+      margin-bottom: 3px;
+      font-size: 0.9rem;
+      font-weight: normal;
+      color: rgba(255,255,255,0.8);
+    }
+    .form-control,
+    .form-control-file {
+      width: 100%;
+      padding: 5px 0;
+      border: none;
+      border-bottom: 1px solid $input-border-color;
+      background: $input-bg;
+      color: $input-text-color;
+      font-size: 0.95rem;
+      &:focus {
+        outline: none;
+        border-bottom-color: lighten($input-border-color, 20%);
+      }
+      &::placeholder {
+        color: rgba(255,255,255,0.5);
+      }
+    }
+    img {
+      max-width: 100%;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+  .btn-call-to-action {
+    width: 100%;
+    padding: 8px 0;
+    background: linear-gradient(to right, $button-gradient-start, $button-gradient-end);
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 10px;
+    &:hover {
+      opacity: 0.9;
+    }
+    &:focus,
+    &:active {
+      outline: none;
+    }
+  }
+  .btn-secondary {
+    display: inline-block;
+    background: transparent;
+    color: rgba(255,255,255,0.8);
+    border: none;
+    text-decoration: underline;
+    font-size: 0.9rem;
+    text-align: center;
+    cursor: pointer;
+    &:hover {
+      color: #fff;
+    }
+    &:focus,
+    &:active {
+      outline: none;
+    }
+  }
+  [data-discojs_target="searchInput"] {
+    margin-bottom: 5px;
+  }
+  [data-discojs-target="searchResults"] {
+    margin-top: 10px;
+  }
+  .policy-check {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    input[type="checkbox"] {
+      margin-right: 5px;
+      transform: scale(1.2);
+    }
+    label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.8);
+    }
+  }
+  .additional-links {
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.7);
+    margin-top: 5px;
+    a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: underline;
+      margin-left: 5px;
+      &:hover {
+        color: #fff;
+      }
+    }
+    .separator {
+      margin: 5px 0;
+      color: rgba(255,255,255,0.5);
+    }
+  }
+  .social-login {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    a {
+      margin: 0 5px;
+      font-size: 1.4rem;
+      color: #fff;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}

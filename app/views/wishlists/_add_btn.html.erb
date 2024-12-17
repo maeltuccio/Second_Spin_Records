@@ -1,0 +1,12 @@
+ <%= turbo_frame_tag "wishlist-btn" do %>
+  <% if (disc.wishlists.any? {|wishlist| wishlist.user == user} ) %>
+    <%= link_to wishlist_path(disc.wishlists.find{|wishlist| wishlist.user == user}), data: { turbo_method: :delete }, class: "btn btn-wishlist mt-3"  do %>
+        <i class="fa-solid fa-heart text-danger"></i>
+        <% end %>
+
+    <% elsif !(disc.collections.any? {|collection| collection.user == user})%>
+      <%= link_to disc_wishlists_path(disc), data: { turbo_method: :post }, class: "btn btn-wishlist mt-3"  do %>
+        <i class="fa-solid fa-heart"></i>
+        <% end %>
+    <% end %>
+<% end %>
