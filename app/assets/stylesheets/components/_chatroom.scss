@@ -1,4 +1,6 @@
-
+.chatcontainer {
+  height: calc(100vh - 96px - 64px);
+}
 .chatroom-title {
   font-family: 'Raleway', sans-serif;
   font-size: 19px;
