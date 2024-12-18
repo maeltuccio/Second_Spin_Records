@@ -5,7 +5,7 @@ class DiscsController < ApplicationController
     if @query.present?
       @discs = Disc.where('title LIKE ?', "%#{@query}%")
     else
-      @discs = Disc.all
+      @discs = Disc.order(created_at: :desc) # Inverser l'ordre en fonction de la date de création
     end
   end
 

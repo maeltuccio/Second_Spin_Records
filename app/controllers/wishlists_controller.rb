@@ -31,6 +31,6 @@ class WishlistsController < ApplicationController
 
   def index
     @user = current_user
-    @wishlists = @user.wishlists
+    @wishlists = @user.wishlists.order(created_at: :desc) # Inverser l'ordre en fonction de la date de création
   end
 end
