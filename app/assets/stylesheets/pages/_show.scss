@@ -53,7 +53,11 @@ h2{
   display: inline-block; /* Fond ajusté au contenu */
   margin: 0 auto; /* Centré horizontalement */
 }
-#musicrecobar {
-  justify-items: center
+// #musicrecobar {
+//   justify-items: center
 
+// }
+
+.btn-right-container{
+  justify-content: right;
 }

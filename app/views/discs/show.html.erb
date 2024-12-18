@@ -14,16 +14,19 @@
 </div>
 <div id="musicrecobar" class="col-md-4">
 
-
-
+<h2 class="poppins-semibold  mb-4 ">Recommendations</h2>
+<div class= "btn-right-container">
 <%= render "shared/reco_mini" %>
-
+<div class="product-nav">
+  <%= link_to "See more recommendations", reco_disc_path(@disc), data: {turbo: false}, class: "btn btn-call-to-action mt-3" %>
+  <%= link_to "Back to all discs", discs_path, data: {turbo: false}, class: "btn btn-call-to-action  mt-3" %><br>
+</div>
 <!-- Edit Audio Button -->
  <%= simple_form_for @disc, html: { multipart: true } do |f| %>
   <div class="form-group">
     <%= f.input :audio, as: :file, label: "Upload an Audio File", input_html: { class: "form-control-file" } %>
   </div>
-  <%= f.button :submit, "Upload", class: "btn btn-primary" %>
+  <%= f.button :submit, "Upload", class: "btn btn-call-to-action  mt-3" %>
 <% end %>
 
 <!-- Contact seller button  -->
@@ -45,18 +48,15 @@
  <!-- Remove from Wishlist Button -->
     <% @disc.collections.each do |collection|%>
       <% if collection.is_owner?(current_user) %>
-        <%= link_to collection_path(collection), data: { turbo_method: :delete, turbo_confirm: 'Êtes-vous sûr de vouloir supprimer cet élément de votre collection ?' }, class: 'btn btn-danger mt-2'  do %>
+        <%= link_to collection_path(collection), data: { turbo_method: :delete, turbo_confirm: 'Êtes-vous sûr de vouloir supprimer cet élément de votre collection ?' }, class: 'btn btn-call-to-action mt-2'  do %>
           <i class="fa-solid fa-trash"></i>
         <% end %>
       <% end %>
       <% end %>
 
 
-
-
 </div>
-
-
+</div>
 
 
 <div class="comment-section">
