@@ -60,9 +60,13 @@
       </div>
 
       <!-- Aperçu de l'image de couverture -->
-      <div class="form-group mt-3">
-        <img data-discojs-target="coverImage" src="https://via.placeholder.com/400x300?text=Loading..." alt="Cover Image" class="img-fluid" style="max-width: 400px;" />
-      </div>
+     <div class="form-group mt-3">
+  <%= image_tag "loading.png",
+    data: { discojs_target: "coverImage" },
+    alt: "Cover Image",
+    class: "img-fluid",
+    style: "max-width: 400px;" %>
+</div>
 
       <div class="form-group">
         <%= f.submit "Create Disc", class: "btn-call-to-action" %>
