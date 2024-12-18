@@ -108,3 +108,8 @@ h2 {
 .reco-container {
   min-height: calc(100vh - 96px - 64px);
 }
+
+.reco-list-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
