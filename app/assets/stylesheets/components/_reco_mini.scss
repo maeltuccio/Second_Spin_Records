@@ -92,7 +92,7 @@ h2 {
 .reco-mini-link {
   display: block;  /* Faire en sorte que l'ensemble de la carte soit cliquable */
   text-decoration: none; /* Enlever la sous-ligne du lien */
-  
+
 }
 
 .fas fa-heart {
@@ -103,4 +103,8 @@ h2 {
   transition: color 0.3s ease;
   &:hover {
     color:red  }
+}
+
+.reco-container {
+  min-height: calc(100vh - 96px - 64px);
 }
