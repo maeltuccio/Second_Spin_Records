@@ -24,6 +24,6 @@ class CollectionsController < ApplicationController
 
   def index
     @user = current_user
-    @collections = @user.collection
+    @collections = @user.collection.order(created_at: :desc) # Inverser l'ordre en fonction de la date de création
   end
 end
