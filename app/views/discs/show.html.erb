@@ -18,6 +18,14 @@
 
 <%= render "shared/reco_mini" %>
 
+<!-- Edit Audio Button -->
+ <%= simple_form_for @disc, html: { multipart: true } do |f| %>
+  <div class="form-group">
+    <%= f.input :audio, as: :file, label: "Upload an Audio File", input_html: { class: "form-control-file" } %>
+  </div>
+  <%= f.button :submit, "Upload", class: "btn btn-primary" %>
+<% end %>
+
 <!-- Contact seller button  -->
 
     <% @disc.wishlists.each do |wishlist|%>

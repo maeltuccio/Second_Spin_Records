@@ -33,7 +33,14 @@ class DiscsController < ApplicationController
   end
 
 
+
   def update
+    @disc = Disc.find(params[:id])
+    if @disc.update(disc_params)
+      redirect_to @disc, notice: 'Audio file was successfully uploaded.'
+    else
+      render :show
+    end
   end
 
   def new
