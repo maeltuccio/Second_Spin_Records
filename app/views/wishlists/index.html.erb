@@ -5,7 +5,6 @@
 <turbo-frame id="dashboard_content">
 <ul class="list-group">
  <% if @wishlists.present? %>
-    <div class="list-group">
       <% @wishlists.each do |wishlist| %>
           <%= link_to disc_path(wishlist.disc) do %>
          <div class="card-mini poppins-italic">
@@ -27,7 +26,6 @@
     </div>
         <% end %>
       <% end %>
-    </div>
   <% else %>
     <p>No Recommendations available.</p>
   <% end %>
