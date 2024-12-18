@@ -37,37 +37,24 @@
               <!-- Bannière avec bouton "Play Now" -->
               <div class="dashboard-banner">
               </div>
+              <h2>Records For You</h2>
+              <div class="reco-list-items">
+                <% if @disc.count > 1 %>
+                  <% @discs.each do |disc| %>
+
+
+                    <%= render "shared/reco_dashboard", disc: disc%>
+                              <!-- Liste des disques -->
+                  <% end %>
+                <% else %>
+                    <%= render "shared/reco_dashboard", disc: Disc.find(@disc.first.id)%>
+                <% end %>
             </div>
-          </div>
-
-          <!-- Liste des disques -->
-<ul class="list-group">
-  <% @recommendations.each do |recommendation| %>
-   <%= link_to disc_path(recommendation) do %>
-
-    <div class="card-mini poppins-italic">
-      <div class="card-mini-content">
-        <h3 class="card-mini-title"><%= recommendation.title %></h3>
-        <p><strong>Artist:</strong> <%= recommendation.artist %></p>
-        <p><strong>Genre:</strong> <%= recommendation.genre %></p>
-        <p><strong>Label:</strong> <%= recommendation.label %></p>
-        <p><strong>Release Date:</strong> <%= recommendation.release_date.present? ? recommendation.release_date : "Unknown" %></p>
-        <p><strong>Catalog Number:</strong> <%= recommendation.cat_number %></p>
-
-    </div>
-
-
-      <!-- Affichage de l'image de couverture si elle existe -->
-      <% if recommendation.cover_url.present? %>
-        <div class="card-mini-image" style="background-image: url('<%= recommendation.cover_url %>');"></div>
-      <% end %>
-    </div>
-    <% end %>
-
-  <% end %>
-</ul>
         </div>
       <% end %>
+
+      </div>
+          </div>
     </div>
   </div>
 </div>
