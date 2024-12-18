@@ -19,7 +19,7 @@
   max-width: 916px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: #6c6c6c00;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -28,7 +28,7 @@
 
 #messages {
   padding: 15px;
-  background-color: #f9f9f9;
+  background-color: #000000c4;
   border-radius: 8px;
   max-height: 400px;
   overflow-y: scroll;
@@ -46,16 +46,16 @@
 
 
 .message.sent .message-content {
-  background-color: #d1e7ff;
-  color: #333;
+  background-color: #606060;
+  color: #fafafa;
   border-radius: 12px 12px 0 12px;
   padding: 8px 15px;
 }
 
 
 .message .message-content {
-  background-color: #e1f7e7;
-  color: #333;
+  background-color: #ffffff;
+  color: #6d6d6d;
   border-radius: 12px 12px 12px 0;
   padding: 8px 15px;
 }
@@ -69,6 +69,7 @@
   display: inline-block;
   max-width: 70%;
   word-wrap: break-word;
+
 }
 
 
@@ -99,11 +100,11 @@
 
 .sidebar-section {
   width: 25%; /* Largeur de la barre latérale */
-  background-color: #f8f9fa; /* Couleur de fond légèrement grise */
+  background-color: #6c6c6cbd;
   padding: 1rem;
   overflow-y: auto; /* Scrolling vertical si nécessaire */
-  border-right: 1px solid #ddd; /* Ligne de séparation */
-  height:739px;
+  border: solid #0000001c;/* Ligne de séparation */
+  height: 620px;
 }
 
 
@@ -148,19 +149,23 @@
 .sidebar-content {
   flex: 1;
   padding: 1rem;
-  background-color: #fff;
   overflow-y: auto;
   margin-block: 1px;
   margin-right: 68px;
   margin-left: 68px;
-  margin-bottom:110px;
+  border-radius: 7px;
+  background-color: #6c6c6cbd;
+  margin-bottom: 140px;
 }
 
 .h2-chatroom {
-  height: 37px;
+  height: 56px;
   font-size: 20px;
   margin-bottom: 20px;
+  top: -28px;
+  left: 3px;
 }
+
 
 .sidebar-title {
   font-size: 1rem;
@@ -207,3 +212,29 @@
 position:relative;
 
 }
+
+  .custom-btn {
+    background-color: #000; /* Noir */
+    color: #fff; /* Texte blanc */
+    font-size: 1rem; /* Taille du texte */
+    font-weight: bold; /* Texte en gras */
+    padding: 10px 20px; /* Espacement interne */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Coins légèrement arrondis */
+    cursor: pointer; /* Curseur interactif */
+    display: flex; /* Flexbox pour aligner l'icône et le texte */
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+    gap: 8px; /* Espacement entre l'icône et le texte */
+    transition: background-color 0.3s ease; /* Transition pour le survol */
+    position: relative;
+    top: -7px;
+    margin-block: 11px;
+  }
+
+  .custom-btn:hover {
+    background-color: #333; /* Légèrement plus clair au survol */
+  }
+  .footer-fix{
+    height: 96vh;
+  }
