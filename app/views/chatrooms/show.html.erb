@@ -23,7 +23,9 @@
         placeholder: "Message à #{other_user.email}",
         wrapper_html: { class: "flex-grow-1 me-2" },
         input_html: { class: "form-control message-input" } %>
-      <%= f.submit "Envoyer", class: "btn btn-primary" %>
+       <button type="submit" class="custom-btn">
+      <i class="fa fa-paper-plane"></i> Send
+    </button>
     </div>
   <% end %>
 </div>
