@@ -1,18 +1,30 @@
 <%= render "shared/background_video" %>
 
-<h1>Recommandations d'albums</h1>
 
-<p><strong>Album actuel:</strong> <%= @disc.title %> - <%= @disc.artist %></p>
+<h1><strong>Current Album</strong> <%= @disc.title %> - <%= @disc.artist %></h1>
+<p></p>
+<h2>Records For You</h2>
 
-<h2>Albums similaires dans le même genre :</h2>
-<ul>
+
+<ul class="list-group">
   <% @recommended_discs.each do |disc| %>
-    <li>
-      <strong><%= disc.title %></strong> - <%= disc.artist %> <br>
-      Genre: <%= disc.genre.presence || "Genre inconnu" %> <br>
-      Date de sortie:
-      <%= disc.release_date%> <br>
-      <%= link_to 'Voir cet album', disc_path(disc) %>
-    </li>
+
+  <%= link_to disc_path(disc), class:"card-mini-link" do %>
+    <div class="card-mini poppins-italic">
+      <div class="card-mini-content">
+        <h3 class="card-mini-title"><%= disc.title %></h3>
+        <p><strong>Artist:</strong> <%= disc.artist %></p>
+        <p><strong>Genre:</strong> <%= disc.genre %></p>
+        <p><strong>Label:</strong> <%= disc.label %></p>
+        <p><strong>Release Date:</strong> <%= disc.release_date.present? ? disc.release_date : "Unknown" %></p>
+        <p><strong>Catalog Number:</strong> <%= disc.cat_number %></p>
+    </div>
+
+      <!-- Affichage de l'image de couverture si elle existe -->
+      <% if disc.cover_url.present? %>
+        <div class="card-mini-image" style="background-image: url('<%= disc.cover_url %>');"></div>
+      <% end %>
+    </div>
+    <% end %>
   <% end %>
 </ul>
