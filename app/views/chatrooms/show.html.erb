@@ -1,7 +1,14 @@
 <%= link_to "Back", :back %>
+<%= render "chatroom_video" %>
 
-<h1 class="chatroom-title">Vous discutez avec <%= @chatroom.user1.email %> et <%= @chatroom.user2.email %></h1>
-<%= turbo_frame_tag "chatroom", class: "w-50" do %>
+  <h2 class="chatroom-title">Start to chat with : </h2>
+    <% if current_user.id == @chatroom.user1_id %>
+    <h2 class="chatroom-title"><%= @chatroom.user2.email %></h2>
+     <% else %>
+    <h2 class="chatroom-title"><%= @chatroom.user1.email %></h2>
+    <% end %>
+    </h2>
+    <%= turbo_frame_tag "chatroom", class: "w-50" do %>
 <%= turbo_stream_from @chatroom %>
 <div class="chat-container">
   <!-- Conteneur messages -->
@@ -21,10 +28,10 @@
       <%= f.input :content,
         label: false,
         placeholder: "Message à #{other_user.email}",
-        wrapper_html: { class: "flex-grow-1 me-2" },
-        input_html: { class: "form-control message-input" } %>
+        wrapper_html: { class: "message-bar flex-grow-1 me-2" },
+        input_html: { class: "message-bar form-control message-input" } %>
        <button type="submit" class="custom-btn">
-      <i class="fa fa-paper-plane"></i> Send
+      <i class="fa fa-paper-plane"></i>
     </button>
     </div>
   <% end %>
