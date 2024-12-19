@@ -3,9 +3,9 @@
 
   <h2 class="chatroom-title">Start to chat with : </h2>
     <% if current_user.id == @chatroom.user1_id %>
-    <h2 class="chatroom-title"><%= @chatroom.user2.email %></h2>
+    <h2 id="inverted-polygon" class="chatroom-title"><%= @chatroom.user2.email %></h2>
      <% else %>
-    <h2 class="chatroom-title"><%= @chatroom.user1.email %></h2>
+    <h2 id="inverted-polygon" class="chatroom-title"><%= @chatroom.user1.email %></h2>
     <% end %>
     </h2>
     <%= turbo_frame_tag "chatroom", class: "w-50" do %>
