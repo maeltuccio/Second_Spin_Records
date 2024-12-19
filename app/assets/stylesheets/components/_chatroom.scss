@@ -3,16 +3,19 @@
 /////////////PARTIE DE DROITE (MESSAGES)//////////////////////
 .chatroom-title {
   font-family: 'Raleway', sans-serif;
-  font-size: 19px;
+  font-size: 13px;
   color: #333;
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   margin-bottom: 20px;
   padding: 10px 0;
-  color: black;
-  border-radius: 10px;
+  color: rgb(255, 255, 255);
   box-shadow: 0 4px 8px rgba(0, -2, 9, 0.1);
+  padding-inline: 40px;
+  margin-inline: 51px;
+  margin-left: 244px;
+  bottom: -29px;
 }
 
 .chat-container {
@@ -32,6 +35,7 @@
   border-radius: 8px;
   max-height: 400px;
   overflow-y: scroll;
+  height: 61vh;
 }
 
 .message {
@@ -72,6 +76,10 @@
 
 }
 
+.message-bar{
+  margin-top: -17px;
+  border-radius: 6px;
+}
 
 .message-input {
   border-radius: 20px;
@@ -212,24 +220,25 @@ position:relative;
 
 }
 
-  .custom-btn {
-    background-color: #000; /* Noir */
-    color: #fff; /* Texte blanc */
-    font-size: 1rem; /* Taille du texte */
-    font-weight: bold; /* Texte en gras */
-    padding: 10px 20px; /* Espacement interne */
-    border: none; /* Pas de bordure */
-    border-radius: 5px; /* Coins légèrement arrondis */
-    cursor: pointer; /* Curseur interactif */
-    display: flex; /* Flexbox pour aligner l'icône et le texte */
-    align-items: center; /* Centre verticalement */
-    justify-content: center; /* Centre horizontalement */
-    gap: 8px; /* Espacement entre l'icône et le texte */
-    transition: background-color 0.3s ease; /* Transition pour le survol */
-    position: relative;
-    top: -7px;
-    margin-block: 11px;
-  }
+.custom-btn {
+  background-color: #000;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 22px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex
+;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.3s ease;
+  position: relative;
+  top: -41px;
+  margin-block: 11px;
+}
 
   .custom-btn:hover {
     background-color: #333; /* Légèrement plus clair au survol */
