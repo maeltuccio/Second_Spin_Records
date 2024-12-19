@@ -164,6 +164,17 @@
   background-color: #6c6c6cbd;
   margin-bottom: 140px;
 }
+.image-container {
+  display: flex;
+  justify-content: center; /* Centre l'image horizontalement */
+  align-items: center; /* Centre l'image verticalement */
+  width: 100%;
+}
+
+.image-container img {
+  max-width: 80%; /* Ajuste la taille de l'image */
+  height: auto; /* Conserve les proportions */
+}
 
 .h2-chatroom {
   height: 56px;
