@@ -65,7 +65,7 @@ footer {
     }
     .form-control,
     .form-control-file {
-      width: 100%;
+      // width: 100%;
       padding: 5px 0;
       border: none;
       border-bottom: 1px solid $input-border-color;
@@ -80,6 +80,8 @@ footer {
         color: rgba(255,255,255,0.5);
       }
     }
+    /* Assure que le bouton et le champ de fichier ont la même hauteur */
+
     img {
       max-width: 100%;
       border-radius: 4px;

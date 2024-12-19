@@ -59,5 +59,9 @@ h2{
 // }
 
 .btn-right-container{
-  justify-content: right;
+  margin-top: 2rem;
+  display: grid;
+  gap: 1rem;
+  justify-content: space-between;
+  justify-items: end;
 }
