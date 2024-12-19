@@ -38,7 +38,25 @@ h2{
   margin-top: 20px;
 }
 
-#h2-invert{
+#inverted-polygon {
+  font-family: 'Raleway', sans-serif;
+    font-size: 13px;
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    padding: 10px 0;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 9, 0.1);
+    padding-inline: 118px;
+    margin-inline: 51px;
+    margin-left: -74px;
+    bottom: -29px;
+    clip-path: polygon(31px 0, 100% 0, 100% 100%, 0 100%);
+    width: 454px;
+}
+#invert-polygon {
   font-family: "Poppins", serif;
   font-weight: 600;
   font-size: 2rem; /* Ajuste la taille du texte */
@@ -46,13 +64,17 @@ h2{
   text-align: center; /* Centre le texte */
   background-color: #000000; /* Fond noir */
   padding-block: 5px; /* Ajuste le padding général */
-  padding-left: 15px;
-  padding-right: 70px; /* Augmente le padding à gauche pour déplacer le texte vers la gauche */
+  padding-left: 42px;
+  padding-right: 48px;
   position: relative;
-  clip-path: polygon(0 0, 53px 148%, 100% 0, 100% 100%); /* Polygone inversé pour l'effet miroir */
   display: inline-block; /* Fond ajusté au contenu */
   margin: 0 auto; /* Centré horizontalement */
+  margin-top: 20px;
+  clip-path: polygon(26px 0, 100% 0, 100% 100%, 0 100%);
+
 }
+
+
 // #musicrecobar {
 //   justify-items: center
 
@@ -64,4 +86,7 @@ h2{
   gap: 1rem;
   justify-content: space-between;
   justify-items: end;
+}
+.invisible-button {
+  visibility: hidden;
 }
