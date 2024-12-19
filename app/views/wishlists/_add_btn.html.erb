@@ -1,4 +1,8 @@
+ <!-- Contact seller button  -->
  <%= turbo_frame_tag "wishlist-btn" do %>
+
+
+
   <% if (disc.wishlists.any? {|wishlist| wishlist.user == user} ) %>
     <%= link_to wishlist_path(disc.wishlists.find{|wishlist| wishlist.user == user}), data: { turbo_method: :delete }, class: "btn btn-wishlist mt-3"  do %>
         <i class="fa-solid fa-heart text-danger"></i>
@@ -9,4 +13,13 @@
         <i class="fa-solid fa-heart"></i>
         <% end %>
     <% end %>
+<% @disc.wishlists.each do |wishlist|%>
+      <% if wishlist.user == current_user && @disc.collections.first.present? %>
+
+        <%= link_to chat_with_owner_path(@disc.collections.first.user), data: {turbo: false}, id:"seereco", class: "btn btn-call-to-action  mt-3" do %>
+          <i class="fa-solid fa-envelope"></i> <span> Contact Seller</span>
+        <% end %>
+       <% end %>
+    <% end %>
+
 <% end %>
