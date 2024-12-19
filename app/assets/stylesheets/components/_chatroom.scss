@@ -86,8 +86,17 @@
   border-radius: 20px;
   padding: 10px;
 }
-
-
+.message-date {
+  font-size: 0.8rem; /* Plus petit que le texte principal */
+  color: #888; /* Gris clair pour ne pas voler la vedette au message */
+  margin-top: 4px; /* Un petit espace au-dessus */
+  text-align: right; /* Pour aligner la date à droite du message */
+}
+.time-line{
+  display: block;
+  margin-top: 7px;
+  margin-inline: 5px;
+}
 .btn-primary {
   border-radius: 20px;
   padding: 10px 20px;

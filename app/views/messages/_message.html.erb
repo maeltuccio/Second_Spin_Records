@@ -1,4 +1,6 @@
 <div data-controller="message" id="message-<%= message.id %>" class="message <%= message.user === user ? 'sent' : 'received' %>" data-message-user-id-value="<%= message.user.id %>">
-<p class="message-content"><%= message.content %></p>
-
+  <p class="message-content"><%= message.content %></p>
+<div class="message-date">
+    <p class="time-line"><%= message.created_at.strftime("%I:%M %p") %></p>
+  </div>
 </div>
