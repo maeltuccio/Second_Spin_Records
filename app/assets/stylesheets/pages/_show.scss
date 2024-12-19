@@ -49,11 +49,12 @@ h2{
     padding: 10px 0;
     color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 9, 0.1);
-    padding-inline: 127px;
+    padding-inline: 118px;
     margin-inline: 51px;
     margin-left: -74px;
     bottom: -29px;
     clip-path: polygon(31px 0, 100% 0, 100% 100%, 0 100%);
+    width: 454px;
 }
 #invert-polygon {
   font-family: "Poppins", serif;
@@ -81,4 +82,7 @@ h2{
 
 .btn-right-container{
   justify-content: right;
+}
+.invisible-button {
+  visibility: hidden;
 }
